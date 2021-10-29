@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
+  public partial class FrmLevel2 : Form {
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -15,13 +15,13 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
-    public FrmLevel() {
+    public FrmLevel2() {
       InitializeComponent();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
-      const int NUM_WALLS = 13;
+      const int NUM_WALLS = 9;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -142,5 +142,10 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        private void picWall6_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

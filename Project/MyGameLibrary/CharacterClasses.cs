@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#pragma warning disable 1591
+
+
 namespace Fall2020_CSC403_Project.code
 {
 	public class CharacterClasses : Character
@@ -12,33 +15,48 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxHealth { get; private set; }
 		private float Strength;
 
-		public Default(Vector2 initPos, Collider collider) : base(initPos, collider)
-		{
-			MaxHealth = 20;
-			Strength = 2;
-			Health += MaxHealth;
-        }
+		public int ClassId = 3;
 
-		public Paladin(Vector2 initPos, Collider collider) : base(initPos, collider)
+		public event Action<int> AttackEvent;
+
+		
+
+		public CharacterClasses(Vector2 initPos, Collider collider) : base(initPos, collider)
 		{
-			MaxHealth = 30;
-			Strength = 4;
-			Health += MaxHealth;
+			if ( ClassId == 0)
+            {
+				MaxHealth = 20;
+				Strength = 2;
+				Health += MaxHealth;
+			}
+			if (ClassId  == 1)
+            {
+				MaxHealth = 15;
+				Strength = 3;
+				Health += MaxHealth;
+			}
+			if(ClassId  == 2)
+			{
+				MaxHealth = 10;
+				Strength = 1;
+				Health += MaxHealth;
+			}
+			if (ClassId  == 3)
+			{
+				MaxHealth = 25;
+				Strength = 4;
+				Health += MaxHealth;
+			}
 		}
 
-
-		public Monk(Vector2 initPos, Collider collider) : base(initPos, collider)
+		public void OnAttack(int amount)
 		{
-			MaxHealth = 15;
-			Strength = 1.5;
-			Health += MaxHealth;
+			AttackEvent((int)(amount * Strength));
 		}
 
-		public Assassin(Vector2 initPos, Collider collider) : base(initPos, collider)
+		public void AlterHealth(int amount)
 		{
-			MaxHealth = 10;
-			Strength = 1;
-			Health += MaxHealth;
+			Health += amount;
 		}
 	}
 }

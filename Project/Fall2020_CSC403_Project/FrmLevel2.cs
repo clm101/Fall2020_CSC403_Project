@@ -69,6 +69,12 @@ namespace Fall2020_CSC403_Project {
       // move player
       player.Move();
 
+            // check collision with walls
+            if (HitAWall(player))
+            {
+                player.MoveBack();
+            }
+
             // check collision with enemies
             if (picEnemyPoisonPacket.Visible)
             {

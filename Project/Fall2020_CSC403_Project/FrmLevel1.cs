@@ -93,10 +93,17 @@ namespace Fall2020_CSC403_Project {
                 }
             }
 
-      //check collision with door
-      if (HitADoor(player, door))
+            //check collision with door
+            if (picDoor.Visible)
             {
-                Close();
+                if (HitADoor(player, door))
+                {
+                    //Close();
+                    picDoor.Visible = false;
+                    this.Hide();
+                    FrmLevel2 f2 = new FrmLevel2();
+                    f2.Show();
+                }
             }
 
 

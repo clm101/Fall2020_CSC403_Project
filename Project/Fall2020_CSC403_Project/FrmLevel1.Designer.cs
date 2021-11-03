@@ -251,7 +251,7 @@
             this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picDoor.Image = ((System.Drawing.Image)(resources.GetObject("picDoor.Image")));
-            this.picDoor.Location = new System.Drawing.Point(1586, 696);
+            this.picDoor.Location = new System.Drawing.Point(1586, 697);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
             this.picDoor.Size = new System.Drawing.Size(25, 133);

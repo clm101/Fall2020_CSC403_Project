@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Fall2020_CSC403_Project.code {
   public class Character {
     private const int GO_INC = 3;
+
 
     public Vector2 MoveSpeed { get; private set; }
     public Vector2 LastPosition { get; private set; }

@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -113,13 +114,171 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backdrop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World_1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Worlds_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Worldss_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_power_Dungeon_theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Snail.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Bat.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_D.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_L.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_R.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_U.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_D.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_L.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_R.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_U.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_D.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_L.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_R.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_U.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_D.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_L.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_R.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_U.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_DI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_LI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_UI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_DI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_LI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_RI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MM_UI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_DI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_LI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_RI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OG_UI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_DI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_LI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_RI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TG_UI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AM_RI.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\433884__jodybruchon__footsteps-quiet.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Step.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Dungeon_Theme_2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Unfathomable.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

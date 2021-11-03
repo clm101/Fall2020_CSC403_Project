@@ -22,7 +22,7 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
-      const int NUM_WALLS = 11;
+      const int NUM_WALLS = 9;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -156,6 +156,11 @@ namespace Fall2020_CSC403_Project {
     }
 
         private void picWall6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picWall5_Click(object sender, EventArgs e)
         {
 
         }

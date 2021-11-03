@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
+      picGameOver.Visible = false;
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -41,6 +42,8 @@ namespace Fall2020_CSC403_Project {
 
       tmrFinalBattle.Enabled = true;
     }
+
+
 
     public static FrmBattle GetInstance(Enemy enemy) {
       if (instance == null) {
@@ -66,14 +69,22 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnAttack(-3);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if ( enemy.Health <= 0) {
         instance = null;
         Close();
       }
+      if (player.Health <= 0)
+            {
+                //show game over screen
+                picGameOver.Location = Point.Empty;
+                picGameOver.Size = ClientSize;
+                picGameOver.Visible = true;
+                //Application.Exit();
+            }
     }
 
     private void EnemyDamage(int amount) {

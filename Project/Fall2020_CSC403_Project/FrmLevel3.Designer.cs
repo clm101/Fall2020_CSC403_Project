@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel3));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -143,7 +144,7 @@
             this.picWall1.Location = new System.Drawing.Point(-5, 1);
             this.picWall1.Margin = new System.Windows.Forms.Padding(4);
             this.picWall1.Name = "picWall1";
-            this.picWall1.Size = new System.Drawing.Size(2069, 34);
+            this.picWall1.Size = new System.Drawing.Size(1801, 34);
             this.picWall1.TabIndex = 13;
             this.picWall1.TabStop = false;
             // 
@@ -318,11 +319,11 @@
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
             this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picDoor.Image = global::Fall2020_CSC403_Project.Properties.Resources.blue2;
-            this.picDoor.Location = new System.Drawing.Point(1831, 827);
+            this.picDoor.Image = ((System.Drawing.Image)(resources.GetObject("picDoor.Image")));
+            this.picDoor.Location = new System.Drawing.Point(1795, 1);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
-            this.picDoor.Size = new System.Drawing.Size(25, 133);
+            this.picDoor.Size = new System.Drawing.Size(220, 34);
             this.picDoor.TabIndex = 21;
             this.picDoor.TabStop = false;
             // 

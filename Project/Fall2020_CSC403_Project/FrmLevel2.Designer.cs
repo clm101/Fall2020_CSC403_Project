@@ -24,6 +24,7 @@
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel2));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -41,6 +42,7 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picWall9 = new System.Windows.Forms.PictureBox();
             this.picWall10 = new System.Windows.Forms.PictureBox();
+            this.picDoor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
@@ -55,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoor)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -126,7 +129,7 @@
             this.picWall1.Location = new System.Drawing.Point(-7, 1);
             this.picWall1.Margin = new System.Windows.Forms.Padding(4);
             this.picWall1.Name = "picWall1";
-            this.picWall1.Size = new System.Drawing.Size(2003, 40);
+            this.picWall1.Size = new System.Drawing.Size(1732, 40);
             this.picWall1.TabIndex = 13;
             this.picWall1.TabStop = false;
             // 
@@ -184,7 +187,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(1810, 91);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(1811, 73);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(85, 132);
@@ -251,6 +254,19 @@
             this.picWall10.TabIndex = 18;
             this.picWall10.TabStop = false;
             // 
+            // picDoor
+            // 
+            this.picDoor.BackColor = System.Drawing.Color.Transparent;
+            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picDoor.Image = ((System.Drawing.Image)(resources.GetObject("picDoor.Image")));
+            this.picDoor.Location = new System.Drawing.Point(1724, 1);
+            this.picDoor.Margin = new System.Windows.Forms.Padding(4);
+            this.picDoor.Name = "picDoor";
+            this.picDoor.Size = new System.Drawing.Size(276, 40);
+            this.picDoor.TabIndex = 19;
+            this.picDoor.TabStop = false;
+            // 
             // FrmLevel2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -258,6 +274,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2037, 988);
+            this.Controls.Add(this.picDoor);
             this.Controls.Add(this.picWall10);
             this.Controls.Add(this.picWall9);
             this.Controls.Add(this.picWall2);
@@ -280,7 +297,6 @@
             this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Explore";
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
@@ -299,6 +315,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,6 +340,7 @@
     private System.Windows.Forms.PictureBox picWall2;
         private System.Windows.Forms.PictureBox picWall9;
         private System.Windows.Forms.PictureBox picWall10;
+        private System.Windows.Forms.PictureBox picDoor;
     }
 }
 

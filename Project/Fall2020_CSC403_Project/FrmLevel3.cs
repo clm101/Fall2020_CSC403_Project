@@ -78,18 +78,29 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-
-      //check collision with door
-      if (HitADoor(player, door))
+            // check collision with enemies
+            if (picEnemyPoisonPacket.Visible)
             {
-                //Close();
+                if (HitAChar(player, enemyPoisonPacket))
+                {
+                    picEnemyPoisonPacket.Visible = false;
+                    Fight(enemyPoisonPacket);
+                }
+            }
+            if (picEnemyCheeto.Visible)
+            {
+                if (HitAChar(player, enemyCheeto))
+                {
+                    picEnemyCheeto.Visible = false;
+                    Fight(enemyCheeto);
+
+                }
+            }
+
+            //check collision with door
+            if (HitADoor(player, door))
+            {
+                Close();
             }
 
 

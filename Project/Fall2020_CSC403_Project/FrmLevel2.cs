@@ -11,6 +11,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
+    private Character door;
+
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
@@ -31,6 +33,8 @@ namespace Fall2020_CSC403_Project {
 
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+      door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -65,21 +69,33 @@ namespace Fall2020_CSC403_Project {
       // move player
       player.Move();
 
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
+            // check collision with enemies
+            if (picEnemyPoisonPacket.Visible)
+            {
+                if (HitAChar(player, enemyPoisonPacket))
+                {
+                    picEnemyPoisonPacket.Visible = false;
+                    Fight(enemyPoisonPacket);
+                }
+            }
+            if (picEnemyCheeto.Visible)
+            {
+                if (HitAChar(player, enemyCheeto))
+                {
+                    picEnemyCheeto.Visible = false;
+                    Fight(enemyCheeto);
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
+                }
+            }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            //check collision with door
+            if (HitADoor(player, door))
+            {
+                Close();
+            }
+
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
     private bool HitAWall(Character c) {
@@ -97,7 +113,12 @@ namespace Fall2020_CSC403_Project {
       return you.Collider.Intersects(other.Collider);
     }
 
-    private void Fight(Enemy enemy) {
+        private bool HitADoor(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);

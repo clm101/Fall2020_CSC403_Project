@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel1 : Form {
+  public partial class FrmLevel3 : Form {
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -17,7 +17,7 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
-    public FrmLevel1() {
+    public FrmLevel3() {
       InitializeComponent();
     }
 
@@ -89,7 +89,7 @@ namespace Fall2020_CSC403_Project {
       //check collision with door
       if (HitADoor(player, door))
             {
-                Close();
+                //Close();
             }
 
 

@@ -31,20 +31,20 @@ namespace Fall2020_CSC403_Project.code
 			}
 			if (ClassId  == 1)
             {
-				MaxHealth = 15;
-				Strength = 3;
+				MaxHealth = 25;
+				Strength = 2;
 				Health += MaxHealth;
 			}
 			if(ClassId  == 2)
 			{
-				MaxHealth = 10;
-				Strength = 1;
+				MaxHealth = 15;
+				Strength = 2;
 				Health += MaxHealth;
 			}
 			if (ClassId  == 3)
 			{
-				MaxHealth = 25;
-				Strength = 4;
+				MaxHealth = 10;
+				Strength = 2;
 				Health += MaxHealth;
 			}
 		}

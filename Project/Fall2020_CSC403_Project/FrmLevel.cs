@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form
     {
         private Player player;
-        public int character_class = 2;
+        public int character_class = 0;
 
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
@@ -116,7 +116,7 @@ namespace Fall2020_CSC403_Project {
         private void Music_restarter_Tick(object sender, EventArgs e)
         {
             BGM.Play();
-        }
+        } 
 
         private Collider CreateCollider(PictureBox pic, int padding)
         {

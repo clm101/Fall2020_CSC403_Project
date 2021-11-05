@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project
     {
         
         public int playerClass = 0;
+        public FrmLevel level; 
         public FmClasses()
         {
             InitializeComponent();
@@ -27,37 +28,41 @@ namespace Fall2020_CSC403_Project
         /*Basic Class*/
         private void button1_Click(object sender, EventArgs e)
         {
-        
-            playerClass = 0;
-            new FrmLevel().Show();
+            level = new FrmLevel();
+            level.character_class = 0;
+            level.Show();
             
-            Close();             
+            //Close();             
           
         }
 
         /*Paladin Class*/
         private void button2_Click(object sender, EventArgs e)
         {
-            playerClass = 1;
-            Close();
+            level = new FrmLevel();
+            level.character_class = 1;
+            level.Show();
+           
         }
 
 
         /*Monk Class*/
         private void button3_Click(object sender, EventArgs e)
         {
-            playerClass = 2;
-            Close();
-            Application.Run(new FrmLevel());
+            level = new FrmLevel();
+            level.character_class = 2;
+            level.Show();
+
         }
 
 
-        /*Theif Class*/
+        /*Thief Class*/
         private void button4_Click(object sender, EventArgs e)
         {
-            playerClass = 3;
-            Close();
-            Application.Run(new FrmLevel());
+            level = new FrmLevel();
+            level.character_class = 3;
+            level.Show();
+
         }
     }
 }

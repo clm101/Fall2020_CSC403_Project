@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form
     {
         private Player player;
-        public int character_class = 0;
+        public int character_class = 3;
 
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
@@ -42,7 +42,7 @@ namespace Fall2020_CSC403_Project {
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             BGM.Play();
-
+            player.ClassId = character_class;
             if (character_class == 0)
             {
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");

@@ -32,7 +32,7 @@ namespace Fall2020_CSC403_Project
             level.character_class = 0;
             level.Show();
             
-            //Close();             
+            this.Hide();             
           
         }
 
@@ -42,7 +42,8 @@ namespace Fall2020_CSC403_Project
             level = new FrmLevel();
             level.character_class = 1;
             level.Show();
-           
+            this.Hide();
+
         }
 
 
@@ -52,6 +53,7 @@ namespace Fall2020_CSC403_Project
             level = new FrmLevel();
             level.character_class = 2;
             level.Show();
+            this.Hide();
 
         }
 
@@ -62,6 +64,7 @@ namespace Fall2020_CSC403_Project
             level = new FrmLevel();
             level.character_class = 3;
             level.Show();
+            this.Hide(); 
 
         }
     }

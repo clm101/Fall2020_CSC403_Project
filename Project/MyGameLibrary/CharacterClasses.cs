@@ -15,12 +15,12 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxHealth { get; private set; }
 		private float Strength;
 
-		public int ClassId = 1;
+		public int ClassId = 0;
 
 		//public event Action<int> AttackEvent;
 
 		
-
+	
 		public CharacterClasses(Vector2 initPos, Collider collider) : base(initPos, collider)
 		{
 			if ( ClassId == 0)

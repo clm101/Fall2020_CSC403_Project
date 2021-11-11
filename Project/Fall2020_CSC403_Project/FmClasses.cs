@@ -42,7 +42,7 @@ namespace Fall2020_CSC403_Project
             level = new FrmLevel1();
             level.character_class = 1;
             level.Show();
-            this.Hide();
+            this.Close();
 
         }
 

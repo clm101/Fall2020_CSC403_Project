@@ -59,12 +59,12 @@ namespace Fall2020_CSC403_Project {
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
-            
-            //BGM.Play();
 
+            //BGM.Play();
+          
             if (character_class == 0)
             {
-                player.ClassId = 0;
+                
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
                 LI = new Bitmap(resourcesPath + "\\OG_LI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_LI);
                 RI = new Bitmap(resourcesPath + "\\OG_RI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_RI);
@@ -77,7 +77,7 @@ namespace Fall2020_CSC403_Project {
             }
             if (character_class == 1)
             {
-                player.ClassId = 1;
+                
                 L = new Bitmap(resourcesPath + "\\AM_L.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_L);
                 LI = new Bitmap(resourcesPath + "\\AM_LI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_LI);
                 R = new Bitmap(resourcesPath + "\\AM_R.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_R);
@@ -89,7 +89,7 @@ namespace Fall2020_CSC403_Project {
             }
             if (character_class == 2)
             {
-                player.ClassId = 2;
+               
                 L = new Bitmap(resourcesPath + "\\MM_L.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_L);
                 LI = new Bitmap(resourcesPath + "\\MM_LI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_LI);
                 R = new Bitmap(resourcesPath + "\\MM_R.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_R);
@@ -101,7 +101,7 @@ namespace Fall2020_CSC403_Project {
             }
             if (character_class == 3)
             {
-                player.ClassId = 3;
+               
                 L = new Bitmap(resourcesPath + "\\TG_L.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_L);
                 LI = new Bitmap(resourcesPath + "\\TG_LI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_LI);
                 R = new Bitmap(resourcesPath + "\\TG_R.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_R);
@@ -129,6 +129,7 @@ namespace Fall2020_CSC403_Project {
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
+            this.player.ClassId += this.character_class;
             Game.player = player;
             timeBegin = DateTime.Now;
             

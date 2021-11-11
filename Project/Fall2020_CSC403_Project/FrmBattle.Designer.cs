@@ -182,10 +182,10 @@
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
-            this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picEnemy);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmBattle";

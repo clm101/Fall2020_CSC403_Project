@@ -379,5 +379,8 @@
   <ItemGroup>
     <None Include="Resources\Dark_Depths.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Door_Ver2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

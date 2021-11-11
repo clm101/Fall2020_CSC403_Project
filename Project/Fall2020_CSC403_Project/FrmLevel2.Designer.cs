@@ -48,6 +48,7 @@
             this.Enemy_Movement = new System.Windows.Forms.Timer(this.components);
             this.picDoor = new System.Windows.Forms.PictureBox();
             this.picHealth = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHealth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -293,7 +295,7 @@
             // picDoor
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
-            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Door;
+            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Door_Ver2;
             this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picDoor.Location = new System.Drawing.Point(1369, 80);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
@@ -314,6 +316,17 @@
             this.picHealth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHealth.TabIndex = 19;
             this.picHealth.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1310, 80);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 151);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmLevel2
             // 
@@ -341,6 +354,7 @@
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picDoor);
+            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1700, 941);
@@ -370,6 +384,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHealth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,6 +415,7 @@
         private System.Windows.Forms.Timer Enemy_Movement;
         private System.Windows.Forms.PictureBox picDoor;
         private System.Windows.Forms.PictureBox picHealth;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

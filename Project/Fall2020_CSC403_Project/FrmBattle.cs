@@ -40,10 +40,13 @@ namespace Fall2020_CSC403_Project {
     }
 
     public void SetupForBossBattle() {
-      picBossBattle.Location = Point.Empty;
-      picBossBattle.Size = ClientSize;
+      //picBossBattle.Location = Point.Empty;
+      //picBossBattle.Size = ClientSize;
       //picBossBattle.Visible = true;
-
+      string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+      picEnemy.BackgroundImage = new Bitmap(resourcesPath + "\\Unfathomable.png");
+      picEnemy.Size = new System.Drawing.Size(500, 400); 
+      picEnemy.Location = new Point(400, 80); 
       SoundPlayer simpleSound = new SoundPlayer(Resources.Dark_Depths);
       simpleSound.PlayLooping();
 

@@ -36,6 +36,7 @@ namespace Fall2020_CSC403_Project {
         public FrmLevel2()
         {
             InitializeComponent();
+            
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -122,7 +123,7 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
             timeBegin = DateTime.Now;
-
+            player.ClassId = character_class;
             //player.Health = Health;
             //player.MaxHealth = MaxHealth;
         }
@@ -191,6 +192,7 @@ namespace Fall2020_CSC403_Project {
                         combat = true;
                         this.Close();
                         FrmLevel3 f3 = new FrmLevel3();
+                        f3.character_class = character_class;
                         f3.Health = player.Health;
                         f3.MaxHealth = player.MaxHealth;
                         f3.Show();

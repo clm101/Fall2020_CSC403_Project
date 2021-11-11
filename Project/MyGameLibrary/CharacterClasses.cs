@@ -15,9 +15,9 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxHealth { get; private set; }
 		private float Strength;
 
-		public int ClassId = 3;
+		public int ClassId = 1;
 
-		public event Action<int> AttackEvent;
+		//public event Action<int> AttackEvent;
 
 		
 

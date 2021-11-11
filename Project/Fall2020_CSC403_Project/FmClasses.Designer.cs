@@ -89,6 +89,8 @@ namespace Fall2020_CSC403_Project
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.OG_DI;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(12, 51);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(160, 289);
@@ -97,6 +99,8 @@ namespace Fall2020_CSC403_Project
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.AM_DI;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(209, 51);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(160, 289);
@@ -105,6 +109,8 @@ namespace Fall2020_CSC403_Project
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.MM_DI;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(414, 51);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(160, 289);
@@ -113,6 +119,8 @@ namespace Fall2020_CSC403_Project
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.TG_DI;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.Location = new System.Drawing.Point(619, 51);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(160, 289);

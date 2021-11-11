@@ -45,14 +45,7 @@ namespace Fall2020_CSC403_Project {
         {
             const int PADDING = 7;
             const int NUM_WALLS = 11;
-            
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), new Point(505, 316), new Point(788, 316));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-            //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
-            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
@@ -104,16 +97,23 @@ namespace Fall2020_CSC403_Project {
                 DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
             }
 
-            enemyPoisonPacket.Img = new Bitmap(resourcesPath + "\\Stalker.png");
-            enemyCheeto.Img = new Bitmap(resourcesPath + "\\Batastrophe.png");
-            //Snail_View.Img = Snail_detection.Image;
-
-
-            //bossKoolaid.Color = Color.Red;
-            //enemyPoisonPacket.Color = Color.Green;
-            //enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+            // Instantiate player and door
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
 
+            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
+
+            // Instantiate enemies
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
+            stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
+            stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
+
+            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING));
+            batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
+            batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
+            LevelEnemies = new Enemy[] { stalker, batastrophe };
+
+            // Instantiate walls
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
             {
@@ -171,6 +171,7 @@ namespace Fall2020_CSC403_Project {
             {
                 player.MoveBack();
             }
+
             if (!combat)
             {
                 // check collision with enemies
@@ -209,8 +210,8 @@ namespace Fall2020_CSC403_Project {
                     }
                 }
             }
-                // update player's picture box
-                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         private void Snail_detection_Click(object sender, EventArgs e)
@@ -351,7 +352,6 @@ namespace Fall2020_CSC403_Project {
                     }
                     player.GoLeft();
                     break;
-
 
                 case Keys.Right:
                     if (!moving)

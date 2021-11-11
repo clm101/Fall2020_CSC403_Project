@@ -12,9 +12,6 @@ namespace Fall2020_CSC403_Project {
         private Player player;
         public int character_class = 1;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy enemyCheeto;
-        //private Enemy Snail_View;
         private Character[] walls;
         private Enemy[] LevelEnemies;
 
@@ -30,8 +27,6 @@ namespace Fall2020_CSC403_Project {
         public Random rd = new Random();
         public bool combat = false;
 
-        //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
-
         public FrmLevel1()
         {
             InitializeComponent();
@@ -42,72 +37,64 @@ namespace Fall2020_CSC403_Project {
             const int PADDING = 7;
             const int NUM_WALLS = 11;
             
-
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), new Point(505, 316), new Point(788, 316));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-            //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-            
+
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
-
-            BGM.Play();
-
             if (character_class == 0)
             {
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
-                LI = new Bitmap(resourcesPath + "\\OG_LI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_LI);
-                RI = new Bitmap(resourcesPath + "\\OG_RI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_RI);
-                R = new Bitmap(resourcesPath + "\\OG_R.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_R);
-                U = new Bitmap(resourcesPath + "\\OG_U.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_U);
-                UI = new Bitmap(resourcesPath + "\\OG_UI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_UI);
-                D = new Bitmap(resourcesPath + "\\OG_D.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_D);
-                DI = new Bitmap(resourcesPath + "\\OG_DI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_DI);
-                //picPlayer.Img = picBossKoolAid.BackgroundImage;
+                LI = new Bitmap(resourcesPath + "\\OG_LI.gif");
+                RI = new Bitmap(resourcesPath + "\\OG_RI.gif");
+                R = new Bitmap(resourcesPath + "\\OG_R.gif");
+                U = new Bitmap(resourcesPath + "\\OG_U.gif");
+                UI = new Bitmap(resourcesPath + "\\OG_UI.gif");
+                D = new Bitmap(resourcesPath + "\\OG_D.gif");
+                DI = new Bitmap(resourcesPath + "\\OG_DI.gif");
             }
             if (character_class == 1)
             {
-                L = new Bitmap(resourcesPath + "\\AM_L.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_L);
-                LI = new Bitmap(resourcesPath + "\\AM_LI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_LI);
-                R = new Bitmap(resourcesPath + "\\AM_R.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_R);
-                RI = new Bitmap(resourcesPath + "\\AM_RI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_RI);
-                U = new Bitmap(resourcesPath + "\\AM_U.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_U);
-                UI = new Bitmap(resourcesPath + "\\AM_UI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_UI);
-                D = new Bitmap(resourcesPath + "\\AM_D.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_D);
-                DI = new Bitmap(resourcesPath + "\\AM_DI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_DI);
+                L = new Bitmap(resourcesPath + "\\AM_L.gif");
+                LI = new Bitmap(resourcesPath + "\\AM_LI.gif");
+                R = new Bitmap(resourcesPath + "\\AM_R.gif");
+                RI = new Bitmap(resourcesPath + "\\AM_RI.gif");
+                U = new Bitmap(resourcesPath + "\\AM_U.gif");
+                UI = new Bitmap(resourcesPath + "\\AM_UI.gif");
+                D = new Bitmap(resourcesPath + "\\AM_D.gif");
+                DI = new Bitmap(resourcesPath + "\\AM_DI.gif");
             }
             if (character_class == 2)
             {
-                L = new Bitmap(resourcesPath + "\\MM_L.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_L);
-                LI = new Bitmap(resourcesPath + "\\MM_LI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_LI);
-                R = new Bitmap(resourcesPath + "\\MM_R.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_R);
-                RI = new Bitmap(resourcesPath + "\\MM_RI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_RI);
-                U = new Bitmap(resourcesPath + "\\MM_U.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                UI = new Bitmap(resourcesPath + "\\MM_UI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                D = new Bitmap(resourcesPath + "\\MM_D.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_D);
-                DI = new Bitmap(resourcesPath + "\\MM_DI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_DI);
+                L = new Bitmap(resourcesPath + "\\MM_L.gif");
+                LI = new Bitmap(resourcesPath + "\\MM_LI.gif");
+                R = new Bitmap(resourcesPath + "\\MM_R.gif");
+                RI = new Bitmap(resourcesPath + "\\MM_RI.gif");
+                U = new Bitmap(resourcesPath + "\\MM_U.gif");
+                UI = new Bitmap(resourcesPath + "\\MM_UI.gif");
+                D = new Bitmap(resourcesPath + "\\MM_D.gif");
+                DI = new Bitmap(resourcesPath + "\\MM_DI.gif");
             }
             if (character_class == 3)
             {
-                L = new Bitmap(resourcesPath + "\\TG_L.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_L);
-                LI = new Bitmap(resourcesPath + "\\TG_LI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_LI);
-                R = new Bitmap(resourcesPath + "\\TG_R.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_R);
-                RI = new Bitmap(resourcesPath + "\\TG_RI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_RI);
-                U = new Bitmap(resourcesPath + "\\TG_U.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_U);
-                UI = new Bitmap(resourcesPath + "\\TG_UI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_UI);
-                D = new Bitmap(resourcesPath + "\\TG_D.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_D);
-                DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
+                L = new Bitmap(resourcesPath + "\\TG_L.gif");
+                LI = new Bitmap(resourcesPath + "\\TG_LI.gif");
+                R = new Bitmap(resourcesPath + "\\TG_R.gif");
+                RI = new Bitmap(resourcesPath + "\\TG_RI.gif");
+                U = new Bitmap(resourcesPath + "\\TG_U.gif");
+                UI = new Bitmap(resourcesPath + "\\TG_UI.gif");
+                D = new Bitmap(resourcesPath + "\\TG_D.gif");
+                DI = new Bitmap(resourcesPath + "\\TG_DI.gif");
             }
 
-            enemyPoisonPacket.Img = new Bitmap(resourcesPath + "\\Stalker.png");
-            enemyCheeto.Img = new Bitmap(resourcesPath + "\\Batastrophe.png");
-            //Snail_View.Img = Snail_detection.Image;
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
+            stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
+            stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
+            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING));
+            batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
+            batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
+            LevelEnemies = new Enemy[] { stalker, batastrophe };
 
-            //bossKoolaid.Color = Color.Red;
-            //enemyPoisonPacket.Color = Color.Green;
-            //enemyCheeto.Color = Color.FromArgb(255, 245, 161);
             picPlayer.Image = DI;
 
             walls = new Character[NUM_WALLS];
@@ -117,6 +104,7 @@ namespace Fall2020_CSC403_Project {
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
+            BGM.Play();
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -154,9 +142,7 @@ namespace Fall2020_CSC403_Project {
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
-            // move player
             player.Move();
-            //LevelEnemies[i]. = new Point((int)player.Position.x, (int)player.Position.y);
 
             // check collision with walls
             if (HitAWall(player))
@@ -166,22 +152,18 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (picEnemyPoisonPacket.Visible)
+                foreach (Enemy enemy in LevelEnemies)
                 {
-                    if (HitAChar(player, enemyPoisonPacket))
+                    if (enemy.Visible)
                     {
-                        picEnemyPoisonPacket.Visible = false;
-                        Fight(enemyPoisonPacket);
+                        if(HitAChar(player, enemy))
+                        {
+                            enemy.Visible = false;
+                            Fight(enemy);
+                        }
                     }
                 }
-                if (picEnemyCheeto.Visible)
-                {
-                    if (HitAChar(player, enemyCheeto))
-                    {
-                        picEnemyCheeto.Visible = false;
-                        Fight(enemyCheeto);
-                    }
-                }
+
                 if (picDoor.Visible)
                 {
                     if (HitADoor(player, door))
@@ -206,53 +188,9 @@ namespace Fall2020_CSC403_Project {
         {
             if (!combat)
             {
-                for (int i = 0; i < LevelEnemies.Length; i++)
+                foreach (Enemy enemy in LevelEnemies)
                 {
-                    if (LevelEnemies[i].Walkspan <= 0)
-                    {
-                        int rand_num = rd.Next(0, 4);
-                        LevelEnemies[i].Dir = rand_num;
-                        //Random rd2 = new Random();
-                        rand_num = rd.Next(5, 20);
-                        LevelEnemies[i].Walkspan = rand_num;
-
-                    }
-                    LevelEnemies[i].Walkspan--;
-                    if (HitAWall(LevelEnemies[i]))
-                    {
-                        //LevelEnemies[i].EnemyMoveBack();
-                    }
-
-                    if (LevelEnemies[i] == enemyPoisonPacket)
-                    {
-                        picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.EnemyPosition.x, (int)enemyPoisonPacket.EnemyPosition.y);
-
-                    }
-                    if (LevelEnemies[i] == enemyCheeto)
-                    {
-                        picEnemyCheeto.Location = new Point((int)enemyCheeto.EnemyPosition.x, (int)enemyCheeto.EnemyPosition.y);
-
-                    }
-
-                    if (LevelEnemies[i].Dir == 0)
-                    {
-                        LevelEnemies[i].EnemyGoDown();
-                    }
-                    else if (LevelEnemies[i].Dir == 1)
-                    {
-                        LevelEnemies[i].EnemyGoUp();
-                    }
-                    else if (LevelEnemies[i].Dir == 2)
-                    {
-                        LevelEnemies[i].EnemyGoLeft();
-                    }
-                    else
-                    {
-                        LevelEnemies[i].EnemyGoRight();
-                    }
-
-
-                    LevelEnemies[i].EnemyMove();
+                   enemy.EnemyMove();
                 }
             }
         }
@@ -310,7 +248,6 @@ namespace Fall2020_CSC403_Project {
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    //what_direction = L_frames;
                     if (!moving)
                     {
                         picPlayer.Image = L;
@@ -332,7 +269,6 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Up:
-                    //what_direction = U_frames;
                     if (!moving)
                     {
                         picPlayer.Image = U;
@@ -343,7 +279,6 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Down:
-                    //what_direction = D_frames;
                     if (!moving)
                     {
                         picPlayer.Image = D;
@@ -362,7 +297,6 @@ namespace Fall2020_CSC403_Project {
         }
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
-            //player.ResetMoveSpeed();
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -372,36 +306,26 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Right:
-                    //player.GoRight();
                     picPlayer.Image = RI;
                     moving = false;
-
-                    ////AnimTimer.Stop();
                     player.ResetMoveSpeed();
-
-
                     break;
 
                 case Keys.Up:
                     picPlayer.Image = UI;
                     player.ResetMoveSpeed();
                     moving = false;
-
                     break;
 
                 case Keys.Down:
                     picPlayer.Image = DI;
                     moving = false;
                     player.ResetMoveSpeed();
-
-
                     break;
 
                 default:
 
                     player.ResetMoveSpeed();
-
-
                     break;
             }
         }

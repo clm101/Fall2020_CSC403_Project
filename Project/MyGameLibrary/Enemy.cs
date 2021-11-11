@@ -61,6 +61,7 @@ namespace Fall2020_CSC403_Project.code {
                 }
                 EnemyPosition = nextEnemyPosition;
                 EnemyCollider.MovePosition((int)nextEnemyPosition.x, (int)nextEnemyPosition.y);
+                m_spriteImage.SetBounds(EnemyCollider.rect.X, EnemyCollider.rect.Y, EnemyCollider.rect.Width, EnemyCollider.rect.Height);
             }
         }
 
@@ -86,7 +87,28 @@ namespace Fall2020_CSC403_Project.code {
             //EnemyMoveSpeed = new Vector2(0, +GO_INC);
         }
 
-        public Image Img { get; set; }
+        private Image m_battleImage;
+        public Image battleImage { get { return m_battleImage; } private set { m_battleImage = value; } }
+        public void set_battle_image(Image battleImage)
+        {
+            m_battleImage = battleImage;
+        }
+        public System.Windows.Forms.PictureBox m_spriteImage { get; private set; }
+        public void set_sprite_image(System.Windows.Forms.PictureBox spriteImage)
+        {
+            m_spriteImage = spriteImage;
+        }
+        public bool Visible
+        {
+            get
+            {
+                return m_spriteImage.Visible;
+            }
+            set
+            {
+                m_spriteImage.Visible = value;
+            }
+        }
         public int Dir { get; set; }
         public int Walkspan { get; set; }
         /// <summary>

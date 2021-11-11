@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project {
             
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), new Point(505, 316), new Point(788, 316));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
@@ -220,7 +220,7 @@ namespace Fall2020_CSC403_Project {
                     LevelEnemies[i].Walkspan--;
                     if (HitAWall(LevelEnemies[i]))
                     {
-                        LevelEnemies[i].EnemyMoveBack();
+                        //LevelEnemies[i].EnemyMoveBack();
                     }
 
                     if (LevelEnemies[i] == enemyPoisonPacket)

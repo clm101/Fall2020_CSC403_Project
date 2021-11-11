@@ -92,7 +92,7 @@ namespace Fall2020_CSC403_Project {
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
             // Instantiate enemies
-            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING));
             stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
             stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
 
@@ -137,7 +137,6 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
-
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
         {

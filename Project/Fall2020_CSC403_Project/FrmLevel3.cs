@@ -12,9 +12,6 @@ namespace Fall2020_CSC403_Project {
         private Player player;
         public int character_class = 1;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy enemyCheeto;
-        //private Enemy Snail_View;
         private Character[] walls;
         private Enemy[] LevelEnemies;
         private Character door;
@@ -42,14 +39,6 @@ namespace Fall2020_CSC403_Project {
             const int PADDING = 7;
             const int NUM_WALLS = 13;
             
-
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-            //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
-            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             if (character_class == 0)
             {
@@ -107,6 +96,10 @@ namespace Fall2020_CSC403_Project {
             stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
             stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
 
+            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING));
+            batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
+            batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
+            LevelEnemies = new Enemy[] { stalker, batastrophe };
 
             // Instantiate walls
             walls = new Character[NUM_WALLS];
@@ -116,6 +109,7 @@ namespace Fall2020_CSC403_Project {
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
+            BGM.Play();
             Game.player = player;
             timeBegin = DateTime.Now;
 
@@ -156,29 +150,29 @@ namespace Fall2020_CSC403_Project {
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
-            // move player
             player.Move();
-            //LevelEnemies[i]. = new Point((int)player.Position.x, (int)player.Position.y);
 
             // check collision with walls
             if (HitAWall(player))
             {
                 player.MoveBack();
             }
+
             if (!combat)
             {
                 // check collision with enemies
-                if (enemyPoisonPacket.IsAlive && HitAChar(player, enemyPoisonPacket))
+                foreach (Enemy enemy in LevelEnemies)
                 {
-                    //picEnemyPoisonPacket.Visible = false;
-                    Fight(enemyPoisonPacket);
+                    if (enemy.Visible)
+                    {
+                        if (HitAChar(player, enemy))
+                        {
+                            enemy.Visible = false;
+                            Fight(enemy);
+                        }
+                    }
                 }
 
-                if (enemyCheeto.IsAlive && HitAChar(player, enemyCheeto))
-                {
-                    //picEnemyCheeto.Visible = false;
-                    Fight(enemyCheeto);
-                }
                 if (picDoor.Visible)
                 {
                     if (HitADoor(player, door))
@@ -224,55 +218,9 @@ namespace Fall2020_CSC403_Project {
             }
             if (!combat)
             {
-                for (int i = 0; i < LevelEnemies.Length; i++)
+                foreach (Enemy enemy in LevelEnemies)
                 {
-                    if (LevelEnemies[i].Walkspan <= 0)
-                    {
-                        int rand_num = rd.Next(0, 4);
-                        LevelEnemies[i].Dir = rand_num;
-                        //Random rd2 = new Random();
-                        rand_num = rd.Next(5, 20);
-                        LevelEnemies[i].Walkspan = rand_num;
-
-                    }
-                    LevelEnemies[i].Walkspan--;
-                    if (HitAWall(LevelEnemies[i]))
-                    {
-                        LevelEnemies[i].EnemyMoveBack();
-                    }
-
-
-
-                    if (LevelEnemies[i] == enemyPoisonPacket)
-                    {
-                        picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.EnemyPosition.x, (int)enemyPoisonPacket.EnemyPosition.y);
-
-                    }
-                    if (LevelEnemies[i] == enemyCheeto)
-                    {
-                        picEnemyCheeto.Location = new Point((int)enemyCheeto.EnemyPosition.x, (int)enemyCheeto.EnemyPosition.y);
-
-                    }
-
-                    if (LevelEnemies[i].Dir == 0)
-                    {
-                        LevelEnemies[i].EnemyGoDown();
-                    }
-                    else if (LevelEnemies[i].Dir == 1)
-                    {
-                        LevelEnemies[i].EnemyGoUp();
-                    }
-                    else if (LevelEnemies[i].Dir == 2)
-                    {
-                        LevelEnemies[i].EnemyGoLeft();
-                    }
-                    else
-                    {
-                        LevelEnemies[i].EnemyGoRight();
-                    }
-
-
-                    LevelEnemies[i].EnemyMove();
+                    enemy.EnemyMove();
                 }
             }
         }

@@ -17,29 +17,37 @@ namespace Fall2020_CSC403_Project {
     }
 
     public void Setup() {
-      // update for this enemy
-      picEnemy.BackgroundImage = enemy.Img;
+            // update for this enemy
+            //enemy.Health = 20;
+            //enemy.MaxHealth = 20;
+            UpdateHealthBars();
+            picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
 
+      string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+
+      
+      picPlayer.BackgroundImage = new Bitmap(resourcesPath + "\\Tomato_Girl_Shimmer.png");
+      picEnemy.Refresh();
+
       // Observer pattern
-      enemy.AttackEvent += PlayerDamage;
-      player.AttackEvent += EnemyDamage;
+      //enemy.AttackEvent += PlayerDamage;
+      //player.AttackEvent += EnemyDamage;
 
       // show health
-      UpdateHealthBars();
     }
 
     public void SetupForBossBattle() {
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
-      picBossBattle.Visible = true;
+      //picBossBattle.Visible = true;
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
+      SoundPlayer simpleSound = new SoundPlayer(Resources.Dark_Depths);
+      simpleSound.PlayLooping();
 
-      tmrFinalBattle.Enabled = true;
+      //tmrFinalBattle.Enabled = true;
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
@@ -52,8 +60,16 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void UpdateHealthBars() {
-      float playerHealthPer = player.Health / (float)player.MaxHealth;
-      float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            float playerHealthPer;
+            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            if (player.Health > player.MaxHealth)
+            {
+                playerHealthPer = player.Health / (float)player.Health;
+            }
+            else
+            {
+                playerHealthPer = player.Health / (float)player.MaxHealth;
+            }
 
       const int MAX_HEALTHBAR_WIDTH = 226;
       lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
@@ -64,17 +80,32 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(-2);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnAttack(-4);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
-        instance = null;
-        Close();
-      }
-    }
+
+            if (player.Health <= 0)
+            {
+                //show game over screen
+                this.Hide();
+                instance = null;
+                GameOver GO = new GameOver();
+                GO.Show();
+
+
+            }
+            if (enemy.Health <= 0)
+            {
+                enemy.IsAlive = false;
+                instance = null;
+                Close();
+            }
+
+            UpdateHealthBars();
+        }
 
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
@@ -88,5 +119,23 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picPlayer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            player.AlterHealth(-1);
+            instance = null;
+            Close();
+        }
+    }
 }

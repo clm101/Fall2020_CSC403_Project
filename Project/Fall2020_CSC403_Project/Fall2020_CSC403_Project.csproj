@@ -53,17 +53,47 @@
     <Compile Include="FmClasses.Designer.cs">
       <DependentUpon>FmClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOver.Designer.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevel.cs">
+    <Compile Include="FrmLevel3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLevel.Designer.cs">
-      <DependentUpon>FrmLevel.cs</DependentUpon>
+    <Compile Include="FrmLevel3.Designer.cs">
+      <DependentUpon>FrmLevel3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLevel2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel2.Designer.cs">
+      <DependentUpon>FrmLevel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLevel1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel1.Designer.cs">
+      <DependentUpon>FrmLevel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLevel4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel4.Designer.cs">
+      <DependentUpon>FrmLevel4.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +103,23 @@
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLevel.resx">
-      <DependentUpon>FrmLevel.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLevel3.resx">
+      <DependentUpon>FrmLevel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel2.resx">
+      <DependentUpon>FrmLevel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel1.resx">
+      <DependentUpon>FrmLevel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel4.resx">
+      <DependentUpon>FrmLevel4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameOver.resx">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,9 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Background.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Backdrop.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\World_0.png" />
@@ -288,6 +330,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Button_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Orange_Girl_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apple_Man_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monk_Man_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tomato_Girl_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Batastrophe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stalker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unfathomable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fruits_Of_The Round_Title_Opening_Animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fruits_Of_The Round_Title_Animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backdrop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Opening Sound_FRuits of the round.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Starting_Something.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heart_Pickup.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game_Over_Bounce.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game_Over_Drop_Blur.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fall.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bassy.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_Depths.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

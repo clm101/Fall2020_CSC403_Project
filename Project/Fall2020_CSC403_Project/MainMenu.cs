@@ -26,8 +26,9 @@ namespace Fall2020_CSC403_Project
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            FrmLevel1 f1 = new FrmLevel1();
-            f1.Show(this);
+            //FrmLevel1 f1 = new FrmLevel1();
+            FmClasses Cm = new FmClasses();
+            Cm.Show(this);
             timer2.Enabled = false;
             Gameplay_Music.PlayLooping();
         }

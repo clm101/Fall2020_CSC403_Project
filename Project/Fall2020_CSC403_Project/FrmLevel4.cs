@@ -123,8 +123,8 @@ namespace Fall2020_CSC403_Project {
             Game.player = player;
             timeBegin = DateTime.Now;
 
-            player.Health = Health;
-            player.MaxHealth = MaxHealth;
+            //player.Health = Health;
+            //player.MaxHealth = MaxHealth;
         }
 
         private Vector2 CreatePosition(PictureBox pic)

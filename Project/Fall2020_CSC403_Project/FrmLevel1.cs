@@ -56,6 +56,7 @@ namespace Fall2020_CSC403_Project {
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
+            
             //BGM.Play();
 
             if (character_class == 0)
@@ -123,9 +124,10 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
             timeBegin = DateTime.Now;
+            player.ClassId = character_class;
 
-            player.Health = 20;
-            player.MaxHealth = 20;
+            //player.Health = 20;
+            //player.MaxHealth = 20;
         }
 
         private Vector2 CreatePosition(PictureBox pic)

@@ -20,7 +20,6 @@ namespace Fall2020_CSC403_Project {
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
-        private int frames = 0;
         public Bitmap L, LI, R, RI, U, UI, D, DI;
         public SoundPlayer BGM = new SoundPlayer(Properties.Resources.Girl_Power_Dungeon_Theme_2);
         public bool moving = false;
@@ -44,10 +43,6 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 11;
 
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
-            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
-
-            //BGM.Play();
-
             if (character_class == 0)
             {
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
@@ -96,8 +91,11 @@ namespace Fall2020_CSC403_Project {
             // Instantiate player and door
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
+            player.Health = 20;
+            player.MaxHealth = 20;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
+            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
             // Instantiate enemies
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
@@ -120,9 +118,6 @@ namespace Fall2020_CSC403_Project {
             BGM.Play();
             Game.player = player;
             timeBegin = DateTime.Now;
-
-            player.Health = 20;
-            player.MaxHealth = 20;
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -135,26 +130,22 @@ namespace Fall2020_CSC403_Project {
             //BGM.Play();
         }
 
-
         private Collider CreateCollider(PictureBox pic, int padding)
         {
             Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
             return new Collider(rect);
         }
 
-
         private void picEnemyCheeto_Click(object sender, EventArgs e)
         {
 
         }
-
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
-            frames++;
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -172,13 +163,10 @@ namespace Fall2020_CSC403_Project {
                 // check collision with enemies
                 foreach (Enemy enemy in LevelEnemies)
                 {
-                    if (enemy.Visible)
+                    if (enemy.IsAlive && HitAChar(player, enemy))
                     {
-                        if(HitAChar(player, enemy))
-                        {
-                            enemy.Visible = false;
-                            Fight(enemy);
-                        }
+                        enemy.Visible = false;
+                        Fight(enemy);
                     }
                 }
 
@@ -216,20 +204,18 @@ namespace Fall2020_CSC403_Project {
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-            if (!enemyPoisonPacket.IsAlive)
+            foreach (Enemy enemy in LevelEnemies)
             {
-                picEnemyPoisonPacket.Visible = false;
-            }
-            if (!enemyCheeto.IsAlive)
-            {
-                picEnemyCheeto.Visible = false;
-            }
-            if (!combat)
-            {
-                foreach (Enemy enemy in LevelEnemies)
+                if (!enemy.IsAlive)
                 {
-                   enemy.EnemyMove();
+                    enemy.Visible = false;
+                }
+                else
+                {
+                    if (!combat)
+                    {
+                        enemy.EnemyMove();
+                    }
                 }
             }
         }
@@ -272,7 +258,6 @@ namespace Fall2020_CSC403_Project {
             return you.Collider.Intersects(other.Collider);
         }
 
-
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -283,14 +268,10 @@ namespace Fall2020_CSC403_Project {
             moving = false;
             combat = true;
             frmBattle.ShowDialog();
-
-
         }
-
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            frames++;
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -336,7 +317,6 @@ namespace Fall2020_CSC403_Project {
 
                 default:
                     player.ResetMoveSpeed();
-                    frames = 0;
                     break;
             }
         }
@@ -375,7 +355,6 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-
         private void lblInGameTime_Click(object sender, EventArgs e)
         {
 
@@ -385,10 +364,5 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
-
-
-
-
-
     }
 }

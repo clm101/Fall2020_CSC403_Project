@@ -23,6 +23,7 @@ namespace Fall2020_CSC403_Project.code {
         public Collider EnemyCollider { get; private set; }
         public int[] m_enemyBoundaries;
         private bool m_isMoving;
+        public bool IsAlive;
         private MoveDirection m_moveDirection;
 
         public void EnemyMove()
@@ -124,6 +125,7 @@ namespace Fall2020_CSC403_Project.code {
         public Enemy(Vector2 initPos, Collider collider, Point boundary1 = default(Point), Point boundary2 = default(Point)) : base(initPos, collider) {
             EnemyPosition = initPos;
             EnemyCollider = collider;
+            IsAlive = true;
             if(boundary1 == default(Point) && boundary2 == default(Point))
             {
                 m_isMoving = false;

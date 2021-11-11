@@ -18,7 +18,6 @@ namespace Fall2020_CSC403_Project {
         private Character heart;
         private DateTime timeBegin;
         private FrmBattle frmBattle;
-        private int frames = 0;
         public Bitmap L, LI, R, RI, U, UI, D, DI;
         public SoundPlayer BGM = new SoundPlayer(Properties.Resources.Girl_Power_Dungeon_Theme_2);
         public bool moving = false;
@@ -90,6 +89,7 @@ namespace Fall2020_CSC403_Project {
             picPlayer.Image = DI;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
+            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
             // Instantiate enemies
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
@@ -133,7 +133,6 @@ namespace Fall2020_CSC403_Project {
             return new Collider(rect);
         }
 
-
         private void picEnemyCheeto_Click(object sender, EventArgs e)
         {
 
@@ -145,7 +144,6 @@ namespace Fall2020_CSC403_Project {
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
-            frames++;
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -163,13 +161,10 @@ namespace Fall2020_CSC403_Project {
                 // check collision with enemies
                 foreach (Enemy enemy in LevelEnemies)
                 {
-                    if (enemy.Visible)
+                    if (enemy.IsAlive && HitAChar(player, enemy))
                     {
-                        if (HitAChar(player, enemy))
-                        {
-                            enemy.Visible = false;
-                            Fight(enemy);
-                        }
+                        enemy.Visible = false;
+                        Fight(enemy);
                     }
                 }
 
@@ -186,6 +181,7 @@ namespace Fall2020_CSC403_Project {
                         f4.Show();
                     }
                 }
+
                 if (picHealth.Visible)
                 {
                     if (HitAHeart(player, heart))
@@ -207,20 +203,18 @@ namespace Fall2020_CSC403_Project {
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-            if (!enemyPoisonPacket.IsAlive)
+            foreach (Enemy enemy in LevelEnemies)
             {
-                picEnemyPoisonPacket.Visible = false;
-            }
-            if (!enemyCheeto.IsAlive)
-            {
-                picEnemyCheeto.Visible = false;
-            }
-            if (!combat)
-            {
-                foreach (Enemy enemy in LevelEnemies)
+                if (!enemy.IsAlive)
                 {
-                    enemy.EnemyMove();
+                    enemy.Visible = false;
+                }
+                else
+                {
+                    if (!combat)
+                    {
+                        enemy.EnemyMove();
+                    }
                 }
             }
         }
@@ -274,11 +268,9 @@ namespace Fall2020_CSC403_Project {
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            frames++;
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    //what_direction = L_frames;
                     if (!moving)
                     {
                         picPlayer.Image = L;
@@ -287,7 +279,6 @@ namespace Fall2020_CSC403_Project {
                     }
                     player.GoLeft();
                     break;
-
 
                 case Keys.Right:
                     if (!moving)
@@ -300,7 +291,6 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Up:
-                    //what_direction = U_frames;
                     if (!moving)
                     {
                         picPlayer.Image = U;
@@ -311,7 +301,6 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Down:
-                    //what_direction = D_frames;
                     if (!moving)
                     {
                         picPlayer.Image = D;
@@ -319,18 +308,15 @@ namespace Fall2020_CSC403_Project {
                         moving = true;
                     }
                     player.GoDown();
-
                     break;
 
                 default:
                     player.ResetMoveSpeed();
-                    frames = 0;
                     break;
             }
         }
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
-            //player.ResetMoveSpeed();
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -340,36 +326,25 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Right:
-                    //player.GoRight();
                     picPlayer.Image = RI;
                     moving = false;
-
-                    ////AnimTimer.Stop();
                     player.ResetMoveSpeed();
-
-
                     break;
 
                 case Keys.Up:
                     picPlayer.Image = UI;
                     player.ResetMoveSpeed();
                     moving = false;
-
                     break;
 
                 case Keys.Down:
                     picPlayer.Image = DI;
                     moving = false;
                     player.ResetMoveSpeed();
-
-
                     break;
 
                 default:
-
                     player.ResetMoveSpeed();
-
-
                     break;
             }
         }
@@ -383,7 +358,5 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
-
-
     }
 }

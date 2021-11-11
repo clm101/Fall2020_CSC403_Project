@@ -36,8 +36,6 @@ namespace Fall2020_CSC403_Project {
         {
             const int PADDING = 7;
             const int NUM_WALLS = 11;
-            
-            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
 
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             if (character_class == 0)
@@ -85,18 +83,23 @@ namespace Fall2020_CSC403_Project {
                 DI = new Bitmap(resourcesPath + "\\TG_DI.gif");
             }
 
+            // Instantiate player and door
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            picPlayer.Image = DI;
 
+            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
+
+            // Instantiate enemies
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
             stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
             stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
+
             Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING));
             batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
             batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
             LevelEnemies = new Enemy[] { stalker, batastrophe };
 
-            picPlayer.Image = DI;
-
+            // Instantiate walls
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
             {
@@ -149,6 +152,7 @@ namespace Fall2020_CSC403_Project {
             {
                 player.MoveBack();
             }
+
             if (!combat)
             {
                 // check collision with enemies
@@ -175,8 +179,8 @@ namespace Fall2020_CSC403_Project {
                     }
                 }
             }
-                // update player's picture box
-                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         private void Snail_detection_Click(object sender, EventArgs e)
@@ -239,7 +243,6 @@ namespace Fall2020_CSC403_Project {
             moving = false;
             combat = true;
             frmBattle.Show();
-
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
@@ -256,7 +259,6 @@ namespace Fall2020_CSC403_Project {
                     }
                     player.GoLeft();
                     break;
-
 
                 case Keys.Right:
                     if (!moving)

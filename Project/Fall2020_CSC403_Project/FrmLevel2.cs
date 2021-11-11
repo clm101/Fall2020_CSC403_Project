@@ -38,59 +38,59 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 13;
 
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
-
-            BGM.Play();
-
             if (character_class == 0)
             {
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
-                LI = new Bitmap(resourcesPath + "\\OG_LI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_LI);
-                RI = new Bitmap(resourcesPath + "\\OG_RI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_RI);
-                R = new Bitmap(resourcesPath + "\\OG_R.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_R);
-                U = new Bitmap(resourcesPath + "\\OG_U.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_U);
-                UI = new Bitmap(resourcesPath + "\\OG_UI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_UI);
-                D = new Bitmap(resourcesPath + "\\OG_D.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_D);
-                DI = new Bitmap(resourcesPath + "\\OG_DI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_DI);
-                //picPlayer.Img = picBossKoolAid.BackgroundImage;
+                LI = new Bitmap(resourcesPath + "\\OG_LI.gif");
+                RI = new Bitmap(resourcesPath + "\\OG_RI.gif");
+                R = new Bitmap(resourcesPath + "\\OG_R.gif");
+                U = new Bitmap(resourcesPath + "\\OG_U.gif");
+                UI = new Bitmap(resourcesPath + "\\OG_UI.gif");
+                D = new Bitmap(resourcesPath + "\\OG_D.gif");
+                DI = new Bitmap(resourcesPath + "\\OG_DI.gif");
             }
             if (character_class == 1)
             {
-                L = new Bitmap(resourcesPath + "\\AM_L.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_L);
-                LI = new Bitmap(resourcesPath + "\\AM_LI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_LI);
-                R = new Bitmap(resourcesPath + "\\AM_R.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_R);
-                RI = new Bitmap(resourcesPath + "\\AM_RI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_RI);
-                U = new Bitmap(resourcesPath + "\\AM_U.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_U);
-                UI = new Bitmap(resourcesPath + "\\AM_UI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_UI);
-                D = new Bitmap(resourcesPath + "\\AM_D.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_D);
-                DI = new Bitmap(resourcesPath + "\\AM_DI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_DI);
+                L = new Bitmap(resourcesPath + "\\AM_L.gif");
+                LI = new Bitmap(resourcesPath + "\\AM_LI.gif");
+                R = new Bitmap(resourcesPath + "\\AM_R.gif");
+                RI = new Bitmap(resourcesPath + "\\AM_RI.gif");
+                U = new Bitmap(resourcesPath + "\\AM_U.gif");
+                UI = new Bitmap(resourcesPath + "\\AM_UI.gif");
+                D = new Bitmap(resourcesPath + "\\AM_D.gif");
+                DI = new Bitmap(resourcesPath + "\\AM_DI.gif");
             }
             if (character_class == 2)
             {
-                L = new Bitmap(resourcesPath + "\\MM_L.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_L);
-                LI = new Bitmap(resourcesPath + "\\MM_LI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_LI);
-                R = new Bitmap(resourcesPath + "\\MM_R.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_R);
-                RI = new Bitmap(resourcesPath + "\\MM_RI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_RI);
-                U = new Bitmap(resourcesPath + "\\MM_U.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                UI = new Bitmap(resourcesPath + "\\MM_UI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                D = new Bitmap(resourcesPath + "\\MM_D.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_D);
-                DI = new Bitmap(resourcesPath + "\\MM_DI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_DI);
+                L = new Bitmap(resourcesPath + "\\MM_L.gif");
+                LI = new Bitmap(resourcesPath + "\\MM_LI.gif");
+                R = new Bitmap(resourcesPath + "\\MM_R.gif");
+                RI = new Bitmap(resourcesPath + "\\MM_RI.gif");
+                U = new Bitmap(resourcesPath + "\\MM_U.gif");
+                UI = new Bitmap(resourcesPath + "\\MM_UI.gif");
+                D = new Bitmap(resourcesPath + "\\MM_D.gif");
+                DI = new Bitmap(resourcesPath + "\\MM_DI.gif");
             }
             if (character_class == 3)
             {
-                L = new Bitmap(resourcesPath + "\\TG_L.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_L);
-                LI = new Bitmap(resourcesPath + "\\TG_LI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_LI);
-                R = new Bitmap(resourcesPath + "\\TG_R.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_R);
-                RI = new Bitmap(resourcesPath + "\\TG_RI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_RI);
-                U = new Bitmap(resourcesPath + "\\TG_U.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_U);
-                UI = new Bitmap(resourcesPath + "\\TG_UI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_UI);
-                D = new Bitmap(resourcesPath + "\\TG_D.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_D);
-                DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
+                L = new Bitmap(resourcesPath + "\\TG_L.gif");
+                LI = new Bitmap(resourcesPath + "\\TG_LI.gif");
+                R = new Bitmap(resourcesPath + "\\TG_R.gif");
+                RI = new Bitmap(resourcesPath + "\\TG_RI.gif");
+                U = new Bitmap(resourcesPath + "\\TG_U.gif");
+                UI = new Bitmap(resourcesPath + "\\TG_UI.gif");
+                D = new Bitmap(resourcesPath + "\\TG_D.gif");
+                DI = new Bitmap(resourcesPath + "\\TG_DI.gif");
             }
 
-
+            // Instantiate player and door
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            picPlayer.Image = DI;
 
-            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING));
+            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
+
+            // Instantiate enemies
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
             stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
             stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
 
@@ -99,10 +99,7 @@ namespace Fall2020_CSC403_Project {
             batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
             LevelEnemies = new Enemy[] { stalker, batastrophe };
 
-            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-
-            picPlayer.Image = DI;
-
+            // Instantiate walls
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
             {
@@ -110,6 +107,7 @@ namespace Fall2020_CSC403_Project {
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
+            BGM.Play();
             Game.player = player;
             timeBegin = DateTime.Now;
         }

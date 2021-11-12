@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     public partial class FrmLevel1 : Form
     {
         private Player player;
-        public int character_class = 1;
+        public int character_class;
 
         private Character[] walls;
         private Enemy[] LevelEnemies;
@@ -44,9 +44,11 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 11;
 
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             if (character_class == 0)
             {
-                
+                player.Health = 20;
+                player.MaxHealth = 20;
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
                 LI = new Bitmap(resourcesPath + "\\OG_LI.gif");
                 RI = new Bitmap(resourcesPath + "\\OG_RI.gif");
@@ -58,7 +60,8 @@ namespace Fall2020_CSC403_Project {
             }
             if (character_class == 1)
             {
-                
+                player.Health = 25;
+                player.MaxHealth = 25;
                 L = new Bitmap(resourcesPath + "\\AM_L.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_L);
                 LI = new Bitmap(resourcesPath + "\\AM_LI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_LI);
                 R = new Bitmap(resourcesPath + "\\AM_R.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_R);
@@ -70,7 +73,8 @@ namespace Fall2020_CSC403_Project {
             }
             if (character_class == 2)
             {
-               
+                player.Health = 15;
+                player.MaxHealth = 15;
                 L = new Bitmap(resourcesPath + "\\MM_L.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_L);
                 LI = new Bitmap(resourcesPath + "\\MM_LI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_LI);
                 R = new Bitmap(resourcesPath + "\\MM_R.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_R);
@@ -82,7 +86,8 @@ namespace Fall2020_CSC403_Project {
             }
             if (character_class == 3)
             {
-               
+                player.Health = 10;
+                player.MaxHealth = 10;
                 L = new Bitmap(resourcesPath + "\\TG_L.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_L);
                 LI = new Bitmap(resourcesPath + "\\TG_LI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_LI);
                 R = new Bitmap(resourcesPath + "\\TG_R.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_R);
@@ -94,10 +99,9 @@ namespace Fall2020_CSC403_Project {
             }
 
             // Instantiate player and door
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
-            player.Health = 20;
-            player.MaxHealth = 20;
+            //player.Health = 20;
+           // player.MaxHealth = 20;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));

@@ -228,59 +228,7 @@ namespace Fall2020_CSC403_Project {
             {
                 picEnemyCheeto.Visible = false;
             }
-            if (!combat)
-            {
-                for (int i = 0; i < LevelEnemies.Length; i++)
-                {
-                    if (LevelEnemies[i].Walkspan <= 0)
-                    {
-                        int rand_num = rd.Next(0, 4);
-                        LevelEnemies[i].Dir = rand_num;
-                        //Random rd2 = new Random();
-                        rand_num = rd.Next(5, 20);
-                        LevelEnemies[i].Walkspan = rand_num;
 
-                    }
-                    LevelEnemies[i].Walkspan--;
-                    if (HitAWall(LevelEnemies[i]))
-                    {
-                        LevelEnemies[i].EnemyMoveBack();
-                    }
-
-
-
-                    if (LevelEnemies[i] == enemyPoisonPacket)
-                    {
-                        picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.EnemyPosition.x, (int)enemyPoisonPacket.EnemyPosition.y);
-
-                    }
-                    if (LevelEnemies[i] == enemyCheeto)
-                    {
-                        picEnemyCheeto.Location = new Point((int)enemyCheeto.EnemyPosition.x, (int)enemyCheeto.EnemyPosition.y);
-
-                    }
-
-                    if (LevelEnemies[i].Dir == 0)
-                    {
-                        LevelEnemies[i].EnemyGoDown();
-                    }
-                    else if (LevelEnemies[i].Dir == 1)
-                    {
-                        LevelEnemies[i].EnemyGoUp();
-                    }
-                    else if (LevelEnemies[i].Dir == 2)
-                    {
-                        LevelEnemies[i].EnemyGoLeft();
-                    }
-                    else
-                    {
-                        LevelEnemies[i].EnemyGoRight();
-                    }
-
-
-                    LevelEnemies[i].EnemyMove();
-                }
-            }
         }
 
         private void picWall3_Click(object sender, EventArgs e)

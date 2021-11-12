@@ -399,16 +399,10 @@
     <None Include="Resources\Dark_Depths.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Girl_Power_Bat_Moving_Up.gif" />
+    <None Include="Resources\Congrat.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Girl_Power_Bat_Right.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Girl_Power_Snail_Right.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Girl_Power_Snail_Up.gif" />
+    <None Include="Resources\Pause.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -331,40 +331,10 @@
   <data name="Starting_Something" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Starting_Something.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Girl_Power_Bat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Bat.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Congrat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Congrat.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Girl_Power_Snail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Snail.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spriteBat_negX" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Bat.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spriteBat_negY" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Bat_Moving_Up.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spriteBat_posX" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Bat_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spriteSnail_negX" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Snail.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spriteSnail_negY" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Snail_Up.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spriteSnail_posX" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Snail_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="battleBat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\battleBat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="battleSnail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\battleSnail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="battleUnfathomable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\battleUnfathomable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spriteUnfathomable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spriteUnfathomable.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

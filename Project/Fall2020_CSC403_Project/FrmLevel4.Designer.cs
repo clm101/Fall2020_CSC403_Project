@@ -188,7 +188,7 @@
             // 
             this.picWall12.BackColor = System.Drawing.Color.Transparent;
             this.picWall12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picWall12.BackgroundImage")));
-            this.picWall12.Location = new System.Drawing.Point(890, 397);
+            this.picWall12.Location = new System.Drawing.Point(892, 425);
             this.picWall12.Name = "picWall12";
             this.picWall12.Size = new System.Drawing.Size(203, 113);
             this.picWall12.TabIndex = 8;
@@ -219,7 +219,7 @@
             this.batastropheSprite.BackColor = System.Drawing.Color.Transparent;
             this.batastropheSprite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.batastropheSprite.Image = ((System.Drawing.Image)(resources.GetObject("batastropheSprite.Image")));
-            this.batastropheSprite.Location = new System.Drawing.Point(835, 540);
+            this.batastropheSprite.Location = new System.Drawing.Point(653, 282);
             this.batastropheSprite.Name = "batastropheSprite";
             this.batastropheSprite.Size = new System.Drawing.Size(98, 107);
             this.batastropheSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -232,7 +232,7 @@
             this.stalkerSprite.BackColor = System.Drawing.Color.Transparent;
             this.stalkerSprite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.stalkerSprite.Image = global::Fall2020_CSC403_Project.Properties.Resources.Girl_Power_Snail;
-            this.stalkerSprite.Location = new System.Drawing.Point(110, 98);
+            this.stalkerSprite.Location = new System.Drawing.Point(215, 277);
             this.stalkerSprite.Name = "stalkerSprite";
             this.stalkerSprite.Size = new System.Drawing.Size(95, 105);
             this.stalkerSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

@@ -93,16 +93,16 @@ namespace Fall2020_CSC403_Project {
             player.MaxHealth = MaxHealth;
 
             // Instantiate enemies
-            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING));
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(215, 300), new Point(600, 300), 4);
             stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
             stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
 
-            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING));
+            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING), new Point(653, 300), new Point(1184, 300), 12);
             batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
             batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
 
             Enemy unfathomable = new Enemy(CreatePosition(unfathomableSprite), CreateCollider(unfathomableSprite, PADDING));
-            unfathomable.set_battle_image(unfathomableSprite.BackgroundImage);
+            unfathomable.set_battle_image(new Bitmap(resourcesPath + "\\Unfathomable.png"));
             unfathomable.set_sprite_image(Controls.Find("unfathomableSprite", true)[0] as PictureBox);
             LevelEnemies = new Enemy[] { stalker, batastrophe, unfathomable }; // boss battle goes with last enemy
 

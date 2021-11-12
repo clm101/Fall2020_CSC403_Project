@@ -21,9 +21,6 @@ namespace Fall2020_CSC403_Project {
         public Random rd = new Random();
         public bool combat = false;
 
-        public int Health;
-        public int MaxHealth;
-
         public FrmLevel4()
         {
             InitializeComponent();

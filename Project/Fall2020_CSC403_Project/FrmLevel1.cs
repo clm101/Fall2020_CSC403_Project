@@ -42,6 +42,7 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 11;
 
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             if (character_class == 0)
             {
                 player.Health = 20;
@@ -96,7 +97,6 @@ namespace Fall2020_CSC403_Project {
             }
 
             // Instantiate player and door
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));

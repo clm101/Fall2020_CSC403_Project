@@ -89,8 +89,8 @@ namespace Fall2020_CSC403_Project {
             // Instantiate player and door
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
-            player.Health = 20;
-            player.MaxHealth = 20;
+            player.Health = Health;
+            player.MaxHealth = MaxHealth;
 
             // Instantiate enemies
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING));
@@ -166,7 +166,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     if (enemy.IsAlive && HitAChar(player, enemy))
                     {
-                        enemy.Visible = false;
+
                         Fight(enemy);
                     }
                 }

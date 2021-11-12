@@ -93,6 +93,8 @@ namespace Fall2020_CSC403_Project {
             // Instantiate player and door
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
+            player.Health = Health;
+            player.MaxHealth = MaxHealth;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
@@ -168,7 +170,6 @@ namespace Fall2020_CSC403_Project {
                 {
                     if (enemy.IsAlive && HitAChar(player, enemy))
                     {
-                        enemy.Visible = false;
                         Fight(enemy);
                     }
                 }

@@ -24,6 +24,7 @@ namespace Fall2020_CSC403_Project.code {
             public Bitmap up;
             public Bitmap upIdle;
         }
+
         private WalkingAnimations m_walkingAnimations;
         private Image m_battleImage;
         public Image battleImage

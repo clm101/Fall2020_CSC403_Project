@@ -8,6 +8,35 @@ using System.Drawing;
 namespace Fall2020_CSC403_Project.code {
     public class Player : CharacterClasses
     {
+        private int m_attack;
+        public int attack
+        {
+            get { return m_attack; }
+            set { m_attack = value; }
+        }
+
+        private int m_attacked;
+        public int attacked
+        {
+            get { return m_attacked; }
+            set { m_attacked = value; }
+        }
+
+        private double m_defense;
+        public double defense
+        {
+            get { return m_defense; }
+            set { m_defense = value; }
+        }
+
+        private int m_escapeChanceIncrease;
+        public int escapeChanceIncrease
+        {
+            get { return m_escapeChanceIncrease; }
+            set { m_escapeChanceIncrease = value; }
+        }
+
+
         public Player(Vector2 initPos, Collider collider, CharacterType characterType) : base(initPos, collider, characterType)
         {
             set_animations_and_battle_image();
@@ -65,6 +94,20 @@ namespace Fall2020_CSC403_Project.code {
             get { return m_walkingAnimations.downIdle; }
         }
 
+        public void OnAttack()
+        {
+            Health += attacked;
+        }
+
+        public void AlterHealth(int amount)
+        {
+            Health += amount;
+        }
+        public void AlterMaxHealth(int amount)
+        {
+            MaxHealth += amount;
+        }
+
         public void set_animations_and_battle_image()
         {
             string resourcesPath = Globals.resourcesPath;
@@ -72,6 +115,10 @@ namespace Fall2020_CSC403_Project.code {
             {
                 Health = 20;
                 MaxHealth = 20;
+                attacked = -4;
+                attack = -20;
+                defense = 0.5;
+                escapeChanceIncrease = 0;
                 m_walkingAnimations.left = new Bitmap(resourcesPath + "\\OG_L.gif");
                 m_walkingAnimations.leftIdle = new Bitmap(resourcesPath + "\\OG_LI.gif");
                 m_walkingAnimations.right = new Bitmap(resourcesPath + "\\OG_R.gif");
@@ -86,6 +133,10 @@ namespace Fall2020_CSC403_Project.code {
             {
                 Health = 25;
                 MaxHealth = 25;
+                attacked = -2;
+                attack = -4;
+                defense = 0.75;
+                escapeChanceIncrease = 0;
                 m_walkingAnimations.left = new Bitmap(resourcesPath + "\\AM_L.gif");
                 m_walkingAnimations.leftIdle = new Bitmap(resourcesPath + "\\AM_LI.gif");
                 m_walkingAnimations.right = new Bitmap(resourcesPath + "\\AM_R.gif");
@@ -100,6 +151,10 @@ namespace Fall2020_CSC403_Project.code {
             {
                 Health = 15;
                 MaxHealth = 15;
+                attacked = -2;
+                attack = -4;
+                defense = 0.5;
+                escapeChanceIncrease = 0;
                 m_walkingAnimations.left = new Bitmap(resourcesPath + "\\MM_L.gif");
                 m_walkingAnimations.leftIdle = new Bitmap(resourcesPath + "\\MM_LI.gif");
                 m_walkingAnimations.right = new Bitmap(resourcesPath + "\\MM_R.gif");
@@ -114,6 +169,10 @@ namespace Fall2020_CSC403_Project.code {
             {
                 Health = 10;
                 MaxHealth = 10;
+                attacked = -4;
+                attack = -10;
+                defense = 0.5;
+                escapeChanceIncrease = 1;
                 m_walkingAnimations.left = new Bitmap(resourcesPath + "\\TG_L.gif");
                 m_walkingAnimations.leftIdle = new Bitmap(resourcesPath + "\\TG_LI.gif");
                 m_walkingAnimations.right = new Bitmap(resourcesPath + "\\TG_R.gif");

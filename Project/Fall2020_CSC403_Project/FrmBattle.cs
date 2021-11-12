@@ -78,39 +78,39 @@ namespace Fall2020_CSC403_Project {
         }
 
         private void btnAttack_Click(object sender, EventArgs e) {
-            player.OnAttack(-2);
+            player.OnAttack();
             if (enemy.Health > 0) {
-            enemy.OnAttack(-4);
+                enemy.OnAttack(player.attack);
             }
 
             UpdateHealthBars();
-    private void btnAttack_Click(object sender, EventArgs e) {
+    //private void btnAttack_Click(object sender, EventArgs e) {
 
-        if (character_class == 0)
-        {
-            player.OnAttack(-4);
-            if (enemy.Health > 0)
-            {
-                enemy.OnAttack(-20);
-            }
-        }
-        else if (character_class == 3)
-        {
-            player.OnAttack(-4);
-            if (enemy.Health > 0)
-            {
-                enemy.OnAttack(-10);
-            }
-        }
-        else
-        {
-            player.OnAttack(-2);
-            if (enemy.Health > 0)
-            {
-                enemy.OnAttack(-4);
-            }
-        }
-      UpdateHealthBars();
+    //    if (character_class == 0)
+    //    {
+    //        player.OnAttack(-4);
+    //        if (enemy.Health > 0)
+    //        {
+    //            enemy.OnAttack(-20);
+    //        }
+    //    }
+    //    else if (character_class == 3)
+    //    {
+    //        player.OnAttack(-4);
+    //        if (enemy.Health > 0)
+    //        {
+    //            enemy.OnAttack(-10);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        player.OnAttack(-2);
+    //        if (enemy.Health > 0)
+    //        {
+    //            enemy.OnAttack(-4);
+    //        }
+    //    }
+    //  UpdateHealthBars();
 
             if (player.Health <= 0)
             {
@@ -130,7 +130,7 @@ namespace Fall2020_CSC403_Project {
             }
 
                 UpdateHealthBars();
-            }
+        }
 
         private void EnemyDamage(int amount) {
             enemy.AlterHealth(amount);
@@ -157,22 +157,7 @@ namespace Fall2020_CSC403_Project {
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OnDefend(-4);
-        }
-        public void OnDefend(int damage)
-        {
-            //int ClassID = 1;
-            double defense = 0.0;
-            if (character_class == 1)
-            {
-                defense = 0.75;
-            }
-
-            else
-            {
-                defense = 0.5;
-            }
-            DefenseCalc(damage, defense);
+            DefenseCalc(-4, player.defense);
         }
 
         public void DefenseCalc(int damage, double defense)
@@ -215,18 +200,20 @@ namespace Fall2020_CSC403_Project {
             int PlayerEscapeChance = PlayerR.Next(1, 5);
             int EnemyPursuitChance = PlayerR.Next(1, 5);
 
+            PlayerEscapeChance += player.escapeChanceIncrease;
             //int ClassID = 1;
 
-            if (character_class == 3)
-            {
-                PlayerEscapeChance += 1;
-                EscapeRoute(PlayerEscapeChance, EnemyPursuitChance);
-            }
+            //if (character_class == 3)
+            //{
+            //    PlayerEscapeChance += 1;
+            //    EscapeRoute(PlayerEscapeChance, EnemyPursuitChance);
+            //}
 
-            else
-            {
-                EscapeRoute(PlayerEscapeChance, EnemyPursuitChance);
-            }
+            //else
+            //{
+            //    EscapeRoute(PlayerEscapeChance, EnemyPursuitChance);
+            //}
+            EscapeRoute(PlayerEscapeChance, EnemyPursuitChance);
         }
 
         

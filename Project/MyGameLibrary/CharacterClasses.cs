@@ -43,21 +43,5 @@ namespace Fall2020_CSC403_Project.code
 			//Strength = 2;
 			Health += MaxHealth;
 		}
-
-       
-        public void OnAttack(int amount)
-		{
-			Health += amount;
-		}
-
-		public void AlterHealth(int amount)
-		{
-
-			Health += amount;
-		}
-		public void AlterMaxHealth(int amount)
-		{
-			MaxHealth += amount;
-		}
 	}
 }

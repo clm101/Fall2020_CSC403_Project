@@ -21,7 +21,7 @@ namespace Fall2020_CSC403_Project {
             //enemy.Health = 20;
             //enemy.MaxHealth = 20;
             UpdateHealthBars();
-            picEnemy.BackgroundImage = enemy.Img;
+            picEnemy.BackgroundImage = enemy.battleImage;
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;

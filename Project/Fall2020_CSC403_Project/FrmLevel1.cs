@@ -12,10 +12,6 @@ namespace Fall2020_CSC403_Project {
         private Player player;
         public int character_class = 1;
 
-
-        private Enemy enemyPoisonPacket;
-        private Enemy enemyCheeto;
-        //private Enemy Snail_View;
         private Character[] walls;
         private Enemy[] LevelEnemies;
 
@@ -24,7 +20,6 @@ namespace Fall2020_CSC403_Project {
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
-        private int frames = 0;
         public Bitmap L, LI, R, RI, U, UI, D, DI;
         public SoundPlayer BGM = new SoundPlayer(Properties.Resources.Girl_Power_Dungeon_Theme_2);
         public bool moving = false;
@@ -47,33 +42,19 @@ namespace Fall2020_CSC403_Project {
         {
             const int PADDING = 7;
             const int NUM_WALLS = 11;
-            
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-            //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
-            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
-            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
-
-
-            //BGM.Play();
-          
             if (character_class == 0)
             {
                 
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
-                LI = new Bitmap(resourcesPath + "\\OG_LI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_LI);
-                RI = new Bitmap(resourcesPath + "\\OG_RI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_RI);
-                R = new Bitmap(resourcesPath + "\\OG_R.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_R);
-                U = new Bitmap(resourcesPath + "\\OG_U.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_U);
-                UI = new Bitmap(resourcesPath + "\\OG_UI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_UI);
-                D = new Bitmap(resourcesPath + "\\OG_D.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_D);
-                DI = new Bitmap(resourcesPath + "\\OG_DI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_DI);
-                //picPlayer.Img = picBossKoolAid.BackgroundImage;
+                LI = new Bitmap(resourcesPath + "\\OG_LI.gif");
+                RI = new Bitmap(resourcesPath + "\\OG_RI.gif");
+                R = new Bitmap(resourcesPath + "\\OG_R.gif");
+                U = new Bitmap(resourcesPath + "\\OG_U.gif");
+                UI = new Bitmap(resourcesPath + "\\OG_UI.gif");
+                D = new Bitmap(resourcesPath + "\\OG_D.gif");
+                DI = new Bitmap(resourcesPath + "\\OG_DI.gif");
             }
             if (character_class == 1)
             {
@@ -112,16 +93,26 @@ namespace Fall2020_CSC403_Project {
                 DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
             }
 
-            enemyPoisonPacket.Img = new Bitmap(resourcesPath + "\\Stalker.png");
-            enemyCheeto.Img = new Bitmap(resourcesPath + "\\Batastrophe.png");
-            //Snail_View.Img = Snail_detection.Image;
-
-
-            //bossKoolaid.Color = Color.Red;
-            //enemyPoisonPacket.Color = Color.Green;
-            //enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+            // Instantiate player and door
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
+            player.Health = 20;
+            player.MaxHealth = 20;
 
+            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
+            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
+
+            // Instantiate enemies
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316));
+            stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
+            stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
+
+            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING));
+            batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
+            batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
+            LevelEnemies = new Enemy[] { stalker, batastrophe };
+
+            // Instantiate walls
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
             {
@@ -149,54 +140,45 @@ namespace Fall2020_CSC403_Project {
             //BGM.Play();
         }
 
-
         private Collider CreateCollider(PictureBox pic, int padding)
         {
             Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
             return new Collider(rect);
         }
 
-
         private void picEnemyCheeto_Click(object sender, EventArgs e)
         {
 
         }
-
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
-            frames++;
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
-            // move player
             player.Move();
-            //LevelEnemies[i]. = new Point((int)player.Position.x, (int)player.Position.y);
 
             // check collision with walls
             if (HitAWall(player))
             {
                 player.MoveBack();
             }
+
             if (!combat)
             {
                 // check collision with enemies
-                if (enemyPoisonPacket.IsAlive && HitAChar(player, enemyPoisonPacket))
+                foreach (Enemy enemy in LevelEnemies)
+                {
+                    if (enemy.IsAlive && HitAChar(player, enemy))
                     {
-                        //picEnemyPoisonPacket.Visible = false;
-                        Fight(enemyPoisonPacket);
+                        Fight(enemy);
+                    }
                 }
 
-                if (enemyCheeto.IsAlive && HitAChar(player, enemyCheeto))
-                    {
-                        //picEnemyCheeto.Visible = false;
-                        Fight(enemyCheeto);
-                    }
-                
                 if (picDoor.Visible)
                 {
                     if (HitADoor(player, door))
@@ -221,8 +203,8 @@ namespace Fall2020_CSC403_Project {
                     }
                 }
             }
-                // update player's picture box
-                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         private void Snail_detection_Click(object sender, EventArgs e)
@@ -232,16 +214,20 @@ namespace Fall2020_CSC403_Project {
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-            if (!enemyPoisonPacket.IsAlive)
+            foreach (Enemy enemy in LevelEnemies)
             {
-                picEnemyPoisonPacket.Visible = false;
+                if (!enemy.IsAlive)
+                {
+                    enemy.Visible = false;
+                }
+                else
+                {
+                    if (!combat)
+                    {
+                        enemy.EnemyMove();
+                    }
+                }
             }
-            if (!enemyCheeto.IsAlive)
-            {
-                picEnemyCheeto.Visible = false;
-            }
-
         }
 
         private void picEnemyPoisonPacket_Click(object sender, EventArgs e)
@@ -282,7 +268,6 @@ namespace Fall2020_CSC403_Project {
             return you.Collider.Intersects(other.Collider);
         }
 
-
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -293,18 +278,13 @@ namespace Fall2020_CSC403_Project {
             moving = false;
             combat = true;
             frmBattle.ShowDialog();
-
-
         }
-
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            frames++;
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    //what_direction = L_frames;
                     if (!moving)
                     {
                         picPlayer.Image = L;
@@ -313,7 +293,6 @@ namespace Fall2020_CSC403_Project {
                     }
                     player.GoLeft();
                     break;
-
 
                 case Keys.Right:
                     if (!moving)
@@ -326,7 +305,6 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Up:
-                    //what_direction = U_frames;
                     if (!moving)
                     {
                         picPlayer.Image = U;
@@ -337,7 +315,6 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Down:
-                    //what_direction = D_frames;
                     if (!moving)
                     {
                         picPlayer.Image = D;
@@ -350,13 +327,11 @@ namespace Fall2020_CSC403_Project {
 
                 default:
                     player.ResetMoveSpeed();
-                    frames = 0;
                     break;
             }
         }
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
-            //player.ResetMoveSpeed();
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -366,40 +341,29 @@ namespace Fall2020_CSC403_Project {
                     break;
 
                 case Keys.Right:
-                    //player.GoRight();
                     picPlayer.Image = RI;
                     moving = false;
-
-                    ////AnimTimer.Stop();
                     player.ResetMoveSpeed();
-
-
                     break;
 
                 case Keys.Up:
                     picPlayer.Image = UI;
                     player.ResetMoveSpeed();
                     moving = false;
-
                     break;
 
                 case Keys.Down:
                     picPlayer.Image = DI;
                     moving = false;
                     player.ResetMoveSpeed();
-
-
                     break;
 
                 default:
 
                     player.ResetMoveSpeed();
-
-
                     break;
             }
         }
-
 
         private void lblInGameTime_Click(object sender, EventArgs e)
         {
@@ -410,10 +374,5 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
-
-
-
-
-
     }
 }

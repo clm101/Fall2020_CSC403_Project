@@ -123,12 +123,11 @@ namespace Fall2020_CSC403_Project {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-
-            this.player.ClassId += this.character_class;
+            
             Game.player = player;
             timeBegin = DateTime.Now;
-            
 
+            
 
             //player.Health = 20;
             //player.MaxHealth = 20;

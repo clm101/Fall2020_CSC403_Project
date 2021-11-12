@@ -15,12 +15,13 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxHealth { get; set; }
 		private float Strength;
 
-		public int ClassId = 0;
+		public int ClassId { get; set; }
 
-		//public event Action<int> AttackEvent;
+		public static int SetId(int classId)
+		{
 
-		
-	
+			return classId;
+		}
 		public CharacterClasses(Vector2 initPos, Collider collider) : base(initPos, collider)
 		{
 
@@ -30,7 +31,8 @@ namespace Fall2020_CSC403_Project.code
 
 		}
 
-		public void OnAttack(int amount)
+       
+        public void OnAttack(int amount)
 		{
 			Health += amount;
 		}

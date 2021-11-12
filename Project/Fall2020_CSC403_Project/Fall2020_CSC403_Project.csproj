@@ -318,7 +318,7 @@
     <None Include="Resources\Girl_Power_Dungeon_Theme_2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Girl_Power_Unfathomable.gif" />
+    <None Include="Resources\spriteUnfathomable.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Button_0.png" />
@@ -354,13 +354,13 @@
     <None Include="Resources\Tomato_Girl_Shimmer.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Batastrophe.png" />
+    <None Include="Resources\battleBat.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Stalker.png" />
+    <None Include="Resources\battleSnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Unfathomable.png" />
+    <None Include="Resources\battleUnfathomable.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Door.png" />
@@ -397,6 +397,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Dark_Depths.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Bat_Moving_Up.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Bat_Right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Snail_Right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Snail_Up.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

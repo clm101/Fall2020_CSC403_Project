@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -172,9 +172,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Batastrophe {
+        internal static System.Drawing.Bitmap battle_screen {
             get {
-                object obj = ResourceManager.GetObject("Batastrophe", resourceCulture);
+                object obj = ResourceManager.GetObject("battle_screen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -182,9 +182,29 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap battle_screen {
+        internal static System.Drawing.Bitmap battleBat {
             get {
-                object obj = ResourceManager.GetObject("battle_screen", resourceCulture);
+                object obj = ResourceManager.GetObject("battleBat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap battleSnail {
+            get {
+                object obj = ResourceManager.GetObject("battleSnail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap battleUnfathomable {
+            get {
+                object obj = ResourceManager.GetObject("battleUnfathomable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -407,16 +427,6 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Girl_Power_Unfathomable {
-            get {
-                object obj = ResourceManager.GetObject("Girl_Power_Unfathomable", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Heart_Pickup {
             get {
                 object obj = ResourceManager.GetObject("Heart_Pickup", resourceCulture);
@@ -626,9 +636,69 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Stalker {
+        internal static System.Drawing.Bitmap spriteBat_negX {
             get {
-                object obj = ResourceManager.GetObject("Stalker", resourceCulture);
+                object obj = ResourceManager.GetObject("spriteBat_negX", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spriteBat_negY {
+            get {
+                object obj = ResourceManager.GetObject("spriteBat_negY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spriteBat_posX {
+            get {
+                object obj = ResourceManager.GetObject("spriteBat_posX", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spriteSnail_negX {
+            get {
+                object obj = ResourceManager.GetObject("spriteSnail_negX", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spriteSnail_negY {
+            get {
+                object obj = ResourceManager.GetObject("spriteSnail_negY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spriteSnail_posX {
+            get {
+                object obj = ResourceManager.GetObject("spriteSnail_posX", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spriteUnfathomable {
+            get {
+                object obj = ResourceManager.GetObject("spriteUnfathomable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -746,16 +816,6 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Tomato_Girl_Shimmer {
             get {
                 object obj = ResourceManager.GetObject("Tomato_Girl_Shimmer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Unfathomable {
-            get {
-                object obj = ResourceManager.GetObject("Unfathomable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -219,14 +219,16 @@ namespace Fall2020_CSC403_Project {
 
         private void Fight(Enemy enemy)
         {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-            picPlayer.Image = DI;
-            enemy.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
-            moving = false;
-            combat = true;
-            frmBattle.Show();
+
+                player.ResetMoveSpeed();
+                player.MoveBack();
+                picPlayer.Image = DI;
+                enemy.MoveBack();
+                frmBattle = FrmBattle.GetInstance(enemy, character_class);
+                moving = false;
+                combat = true;
+                frmBattle.ShowDialog();
+            
 
             if (enemy == LevelEnemies[LevelEnemies.Length - 1])
             {

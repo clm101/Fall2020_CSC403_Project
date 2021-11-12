@@ -265,12 +265,10 @@ namespace Fall2020_CSC403_Project {
             player.MoveBack();
             picPlayer.Image = DI;
             enemy.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, character_class);
             moving = false;
             combat = true;
-            frmBattle.Show();
-
-
+            frmBattle.ShowDialog();
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)

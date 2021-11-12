@@ -99,7 +99,7 @@ namespace Fall2020_CSC403_Project {
             batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
 
             Enemy unfathomable = new Enemy(CreatePosition(unfathomableSprite), CreateCollider(unfathomableSprite, PADDING));
-            unfathomable.set_battle_image(unfathomableSprite.BackgroundImage);
+            unfathomable.set_battle_image(new Bitmap(resourcesPath + "\\Unfathomable.png"));
             unfathomable.set_sprite_image(Controls.Find("unfathomableSprite", true)[0] as PictureBox);
             LevelEnemies = new Enemy[] { stalker, batastrophe, unfathomable }; // boss battle goes with last enemy
 

@@ -170,7 +170,6 @@ namespace Fall2020_CSC403_Project {
                 {
                     if (enemy.IsAlive && HitAChar(player, enemy))
                     {
-                        enemy.Visible = false;
                         Fight(enemy);
                     }
                 }

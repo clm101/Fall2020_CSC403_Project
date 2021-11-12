@@ -94,13 +94,22 @@ namespace Fall2020_CSC403_Project {
             heart = new Character(CreatePosition(picHeart), CreateCollider(picHeart, PADDING));
 
             // Instantiate enemies
-            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(500, 150), new Point(500, 536), 4);
-            stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
-            stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite),
+                CreateCollider(stalkerSprite, PADDING),
+                "Snail",
+                stalkerSprite,
+                new Point(500, 150),
+                new Point(500, 536),
+                4);
 
-            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING), new Point(1100, 250), new Point(1100, 550), 4);
-            batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
-            batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
+            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite),
+                CreateCollider(batastropheSprite, PADDING),
+                "Bat",
+                batastropheSprite,
+                new Point(1100, 250),
+                new Point(1100, 550),
+                4);
+
             LevelEnemies = new Enemy[] { stalker, batastrophe };
 
             // Instantiate walls
@@ -202,16 +211,9 @@ namespace Fall2020_CSC403_Project {
         {
             foreach (Enemy enemy in LevelEnemies)
             {
-                if (!enemy.IsAlive)
+                if (!combat)
                 {
-                    enemy.Visible = false;
-                }
-                else
-                {
-                    if (!combat)
-                    {
-                        enemy.EnemyMove();
-                    }
+                    enemy.EnemyMove();
                 }
             }
         }

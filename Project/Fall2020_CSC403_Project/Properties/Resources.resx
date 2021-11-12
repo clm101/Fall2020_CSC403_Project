@@ -136,9 +136,6 @@
   <data name="Girl_power_Dungeon_theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Girl_power_Dungeon_theme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Girl_Power_Snail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Snail.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="AM_D" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AM_D.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,14 +181,8 @@
   <data name="Button_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Girl_Power_Bat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Bat.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Girl_Power_Dungeon_Theme_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Girl_Power_Dungeon_Theme_2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Girl_Power_Unfathomable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Girl_Power_Unfathomable.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MM_D" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MM_D.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,17 +286,11 @@
   <data name="Apple_Man_Shimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Apple_Man_Shimmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Batastrophe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Batastrophe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Monk_Man_Shimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monk_Man_Shimmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Orange_Girl_Shimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orange_Girl_Shimmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Stalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Stalker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tomato_Girl_Shimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tomato_Girl_Shimmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -315,9 +300,6 @@
   </data>
   <data name="Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Unfathomable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Unfathomable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fruits_Of_The_Round_Title_Animation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fruits_Of_The Round_Title_Animation.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -348,5 +330,11 @@
   </data>
   <data name="Starting_Something" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Starting_Something.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Congrat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Congrat.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

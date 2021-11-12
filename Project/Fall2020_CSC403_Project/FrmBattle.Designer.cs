@@ -112,7 +112,7 @@
             // picEnemy
             // 
             this.picEnemy.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Batastrophe;
+            this.picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battleBat;
             this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemy.Location = new System.Drawing.Point(512, 104);
             this.picEnemy.Name = "picEnemy";

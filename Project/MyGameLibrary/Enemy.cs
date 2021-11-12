@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using System;
 
 namespace Fall2020_CSC403_Project.code {
     /// <summary>
@@ -24,46 +25,73 @@ namespace Fall2020_CSC403_Project.code {
         // Battle art
         private Image m_battleImage;
         public Image battleImage { get { return m_battleImage; } private set { m_battleImage = value; } }
-        public void set_battle_image(Image battleImage)
-        {
-            m_battleImage = battleImage;
-        }
 
         // Walking art
-        private PictureBox m_spriteImage;
-        public PictureBox spriteImage { get { return m_spriteImage; } private set { m_spriteImage = value; } }
-        public void set_sprite_image(System.Windows.Forms.PictureBox spriteImage)
+        private struct MovingAnimations
         {
-            m_spriteImage = spriteImage;
+            public Image posX;
+            public Image negX;
+            public Image negY;
+
+            public Image baseImage;
         }
-        public bool Visible
+        private MovingAnimations m_spriteImage;
+        private PictureBox m_sprite;
+
+        public void set_images(string enemyName)
         {
-            get
+            string resourcesPath = Globals.resourcesPath;
+            string baseSpriteFilePath = resourcesPath + "\\sprite" + enemyName;
+            try
             {
-                return m_spriteImage.Visible;
+                m_spriteImage.posX = Image.FromFile(baseSpriteFilePath + "_posX.gif");
+                m_spriteImage.negX = Image.FromFile(baseSpriteFilePath + "_negX.gif");
+                m_spriteImage.negY = Image.FromFile(baseSpriteFilePath + "_negY.gif");
+                m_spriteImage.baseImage = m_spriteImage.negX;
             }
-            set
+            catch(System.IO.FileNotFoundException e)
             {
-                m_spriteImage.Visible = value;
+                m_spriteImage.baseImage = Image.FromFile(baseSpriteFilePath + ".gif");
             }
+            m_battleImage = Bitmap.FromFile(resourcesPath + "\\battle" + enemyName + ".png");
         }
 
         /// <summary>
         /// this is the background color for the fight form for this enemy
         /// </summary>
         public Color Color { get; set; }
-
-    public bool IsAlive { get; set; }
+        public bool m_isAlive;
+        public bool IsAlive {
+            get
+            {
+                return m_isAlive;
+            }
+            set
+            {
+                m_isAlive = value;
+                m_sprite.Visible = value;
+            }
+        }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="initPos">this is the initial position of the enemy</param>
         /// <param name="collider">this is the collider for the enemy</param>
-        public Enemy(Vector2 initPos, Collider collider, Point boundary1 = default(Point), Point boundary2 = default(Point), int speed = 0) : base(initPos, collider) {
+        public Enemy(Vector2 initPos,
+            Collider collider,
+            string enemyName,
+            PictureBox levelSprite,
+            Point boundary1 = default(Point),
+            Point boundary2 = default(Point),
+            int speed = 0)
+            :
+            base(initPos, collider)
+        {
+            // Init members first
             EnemyPosition = initPos;
             EnemyCollider = collider;
-            IsAlive = true;
+            m_sprite = levelSprite;
             if(boundary1 == default(Point) && boundary2 == default(Point))
             {
                 m_isMoving = false;
@@ -84,6 +112,24 @@ namespace Fall2020_CSC403_Project.code {
                     EnemyMoveSpeed = new Vector2(speed, 0);
                 }
             }
+
+            IsAlive = true;
+            set_images(enemyName);
+            if (m_isMoving && m_moveDirection == MoveDirection.Horizontal)
+            {
+                if (speed > 0)
+                {
+                    m_sprite.Image = m_spriteImage.posX;
+                }
+                else
+                {
+                    m_sprite.Image = m_spriteImage.negX;
+                }
+            }
+            else
+            {
+                m_sprite.Image = m_spriteImage.baseImage;
+            }
         }
 
         public void EnemyMove()
@@ -99,11 +145,13 @@ namespace Fall2020_CSC403_Project.code {
                     {
                         nextEnemyPosition.x = m_enemyBoundaries[0];
                         EnemyMoveSpeed = new Vector2(EnemyMoveSpeed.x * -1, EnemyMoveSpeed.y);
+                        m_sprite.Image = m_spriteImage.posX;
                     }
                     else if (nextEnemyPosition.x + EnemyCollider.rect.Width - m_enemyBoundaries[1] > 0)
                     {
                         nextEnemyPosition.x = m_enemyBoundaries[1] - EnemyCollider.rect.Width;
                         EnemyMoveSpeed = new Vector2(EnemyMoveSpeed.x * -1, EnemyMoveSpeed.y);
+                        m_sprite.Image = m_spriteImage.negX;
                     }
                 }
                 else
@@ -113,16 +161,18 @@ namespace Fall2020_CSC403_Project.code {
                     {
                         nextEnemyPosition.y = m_enemyBoundaries[0];
                         EnemyMoveSpeed = new Vector2(EnemyMoveSpeed.x, EnemyMoveSpeed.y * -1);
+                        m_sprite.Image = m_spriteImage.negX;
                     }
                     else if (nextEnemyPosition.y + EnemyCollider.rect.Height - m_enemyBoundaries[1] > 0)
                     {
                         nextEnemyPosition.y = m_enemyBoundaries[1] - EnemyCollider.rect.Height;
                         EnemyMoveSpeed = new Vector2(EnemyMoveSpeed.x, EnemyMoveSpeed.y * -1);
+                        m_sprite.Image = m_spriteImage.negY;
                     }
                 }
                 EnemyPosition = nextEnemyPosition;
                 EnemyCollider.MovePosition((int)nextEnemyPosition.x, (int)nextEnemyPosition.y);
-                m_spriteImage.SetBounds(EnemyCollider.rect.X, EnemyCollider.rect.Y, EnemyCollider.rect.Width, EnemyCollider.rect.Height);
+                m_sprite.SetBounds(EnemyCollider.rect.X, EnemyCollider.rect.Y, EnemyCollider.rect.Width, EnemyCollider.rect.Height);
             }
         }
     }

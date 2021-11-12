@@ -103,13 +103,18 @@ namespace Fall2020_CSC403_Project {
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
             // Instantiate enemies
-            Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(505, 316), new Point(788, 316), 2);
-            stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
-            stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
+            Enemy stalker = new Enemy(CreatePosition(stalkerSprite),
+                CreateCollider(stalkerSprite, PADDING), 
+                "Snail",
+                stalkerSprite,
+                new Point(505, 316),
+                new Point(788, 316),
+                2);
 
-            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite), CreateCollider(batastropheSprite, PADDING));
-            batastrophe.set_battle_image(new Bitmap(resourcesPath + "\\Batastrophe.png"));
-            batastrophe.set_sprite_image(Controls.Find("batastropheSprite", true)[0] as PictureBox);
+            Enemy batastrophe = new Enemy(CreatePosition(batastropheSprite),
+                CreateCollider(batastropheSprite, PADDING),
+                "Bat",
+                batastropheSprite);
             LevelEnemies = new Enemy[] { stalker, batastrophe };
 
             // Instantiate walls
@@ -210,16 +215,9 @@ namespace Fall2020_CSC403_Project {
         {
             foreach (Enemy enemy in LevelEnemies)
             {
-                if (!enemy.IsAlive)
+                if (!combat)
                 {
-                    enemy.Visible = false;
-                }
-                else
-                {
-                    if (!combat)
-                    {
-                        enemy.EnemyMove();
-                    }
+                    enemy.EnemyMove();
                 }
             }
         }

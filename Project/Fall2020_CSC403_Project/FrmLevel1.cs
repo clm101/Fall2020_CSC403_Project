@@ -84,8 +84,8 @@ namespace Fall2020_CSC403_Project {
             }
             else // character_class == 3
             {
-                player.Health = 10;
-                player.MaxHealth = 10;
+                player.Health = 15;
+                player.MaxHealth = 15;
                 L = new Bitmap(resourcesPath + "\\TG_L.gif");
                 LI = new Bitmap(resourcesPath + "\\TG_LI.gif");
                 R = new Bitmap(resourcesPath + "\\TG_R.gif");

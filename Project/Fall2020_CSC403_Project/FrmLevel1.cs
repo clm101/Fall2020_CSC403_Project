@@ -379,8 +379,9 @@ namespace Fall2020_CSC403_Project {
             {
                 //this.Close();
                 //this.Hide();
+                combat = true;
                 VerifyExit e1 = new VerifyExit();
-                e1.Show();
+                e1.ShowDialog();
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);

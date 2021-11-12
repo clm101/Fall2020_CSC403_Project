@@ -355,6 +355,20 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                //this.Close();
+                //this.Hide();
+                combat = true;
+                VerifyExit e1 = new VerifyExit();
+                e1.ShowDialog();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void lblInGameTime_Click(object sender, EventArgs e)
         {
 

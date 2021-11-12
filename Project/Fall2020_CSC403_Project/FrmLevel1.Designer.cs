@@ -328,6 +328,7 @@
             this.Name = "FrmLevel1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);

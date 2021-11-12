@@ -37,8 +37,6 @@ namespace Fall2020_CSC403_Project
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +75,7 @@ namespace Fall2020_CSC403_Project
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(137, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 2;
             // 
             // menuStrip1
@@ -128,9 +126,7 @@ namespace Fall2020_CSC403_Project
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits of the Round";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

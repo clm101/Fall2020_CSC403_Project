@@ -111,7 +111,7 @@ namespace Fall2020_CSC403_Project {
                 this.Hide();
                 instance = null;
                 GameOver GO = new GameOver();
-                GO.Show();
+                GO.ShowDialog();
 
 
             }

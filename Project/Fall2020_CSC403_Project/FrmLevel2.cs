@@ -91,7 +91,7 @@ namespace Fall2020_CSC403_Project {
             player.MaxHealth = MaxHealth;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
+            heart = new Character(CreatePosition(picHeart), CreateCollider(picHeart, PADDING));
 
             // Instantiate enemies
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(500, 150), new Point(500, 536), 4);
@@ -179,11 +179,11 @@ namespace Fall2020_CSC403_Project {
                         f3.Show();
                     }
                 }
-                if (picHealth.Visible)
+                if (picHeart.Visible)
                 {
                     if (HitAHeart(player, heart))
                     {
-                        picHealth.Visible = false;
+                        picHeart.Visible = false;
                         player.AlterHealth(10);
                         player.AlterMaxHealth(10);
                     }
@@ -361,6 +361,20 @@ namespace Fall2020_CSC403_Project {
                     player.ResetMoveSpeed();
                     break;
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                //this.Close();
+                //this.Hide();
+                combat = true;
+                VerifyExit e1 = new VerifyExit();
+                e1.ShowDialog();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)

@@ -11,8 +11,8 @@ namespace Fall2020_CSC403_Project.code
 {
 	public class CharacterClasses : Character
 	{
-		public int Health { get; private set; }
-		public int MaxHealth { get; private set; }
+		public int Health { get;  set; }
+		public int MaxHealth { get; set; }
 		private float Strength;
 
 		public int ClassId = 0;

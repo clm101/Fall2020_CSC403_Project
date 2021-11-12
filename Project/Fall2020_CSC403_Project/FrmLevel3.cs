@@ -31,7 +31,7 @@ namespace Fall2020_CSC403_Project {
         public FrmLevel3()
         {
             InitializeComponent();
-            player.ClassId = character_class;
+            //player.ClassId = character_class;
 
         }
 
@@ -42,7 +42,7 @@ namespace Fall2020_CSC403_Project {
             
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
-            player.ClassId = character_class;
+            //player.ClassId = character_class;
             //BGM.Play();
 
             if (character_class == 0)

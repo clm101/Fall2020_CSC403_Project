@@ -29,7 +29,7 @@ namespace Fall2020_CSC403_Project {
         public FrmLevel4()
         {
             InitializeComponent();
-            player.ClassId = character_class;
+            //player.ClassId = character_class;
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Fall2020_CSC403_Project {
             
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             BGM.Play();
-            player.ClassId = character_class;
+           // player.ClassId = character_class;
             if (character_class == 0)
             {
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
@@ -116,7 +116,7 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
             timeBegin = DateTime.Now;
-            player.ClassId = character_class;
+            //player.ClassId = character_class;
             //player.Health = Health;
             //player.MaxHealth = MaxHealth;
         }

@@ -120,7 +120,7 @@ namespace Fall2020_CSC403_Project {
             BGM.Play();
             Game.player = player;
             timeBegin = DateTime.Now;
-            player.ClassId = character_class;
+            
             //player.Health = Health;
             //player.MaxHealth = MaxHealth;
         }

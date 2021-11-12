@@ -92,7 +92,7 @@ namespace Fall2020_CSC403_Project {
             player.MaxHealth = MaxHealth;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
+            heart = new Character(CreatePosition(picHeart), CreateCollider(picHeart, PADDING));
 
             // Instantiate enemies
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(800, 200), new Point(800, 500), 4);
@@ -182,11 +182,11 @@ namespace Fall2020_CSC403_Project {
                     }
                 }
 
-                if (picHealth.Visible)
+                if (picHeart.Visible)
                 {
                     if (HitAHeart(player, heart))
                     {
-                        picHealth.Visible = false;
+                        picHeart.Visible = false;
                         player.AlterHealth(10);
                         player.AlterMaxHealth(10);
                     }

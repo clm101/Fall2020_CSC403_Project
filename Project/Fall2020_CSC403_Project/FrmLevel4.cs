@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project {
         public bool moving = false;
         public Random rd = new Random();
         public bool combat = false;
+        private Character heart;
 
         public int Health;
         public int MaxHealth;
@@ -87,6 +88,8 @@ namespace Fall2020_CSC403_Project {
             picPlayer.Image = DI;
             player.Health = Health;
             player.MaxHealth = MaxHealth;
+
+            heart = new Character(CreatePosition(picHeart), CreateCollider(picHeart, PADDING));
 
             // Instantiate enemies
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(215, 300), new Point(600, 300), 4);
@@ -164,6 +167,16 @@ namespace Fall2020_CSC403_Project {
                         Fight(enemy);
                     }
                 }
+
+                if (picHeart.Visible)
+                {
+                    if (HitAHeart(player, heart))
+                    {
+                        picHeart.Visible = false;
+                        player.AlterHealth(10);
+                        player.AlterMaxHealth(10);
+                    }
+                }
             }
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -207,6 +220,11 @@ namespace Fall2020_CSC403_Project {
         }
 
         private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool HitAHeart(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
         }

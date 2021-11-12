@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code {
     /// <summary>
@@ -9,22 +10,81 @@ namespace Fall2020_CSC403_Project.code {
     {
         Horizontal, Vertical
     }
+
     public class Enemy : BattleCharacter {
-        /// <summary>
-        /// THis is the image for an enemy
-        /// </summary>
-        /// 
-        private const int GO_INC = 3;
-
-
+        // Movement
         public Vector2 EnemyMoveSpeed { get; private set; }
         public Vector2 EnemyLastPosition { get; private set; }
         public Vector2 EnemyPosition { get; private set; }
         public Collider EnemyCollider { get; private set; }
-        public int[] m_enemyBoundaries;
+        private int[] m_enemyBoundaries;
         private bool m_isMoving;
-        public bool IsAlive;
         private MoveDirection m_moveDirection;
+
+        // Battle art
+        private Image m_battleImage;
+        public Image battleImage { get { return m_battleImage; } private set { m_battleImage = value; } }
+        public void set_battle_image(Image battleImage)
+        {
+            m_battleImage = battleImage;
+        }
+
+        // Walking art
+        private PictureBox m_spriteImage;
+        public PictureBox spriteImage { get { return m_spriteImage; } private set { m_spriteImage = value; } }
+        public void set_sprite_image(System.Windows.Forms.PictureBox spriteImage)
+        {
+            m_spriteImage = spriteImage;
+        }
+        public bool Visible
+        {
+            get
+            {
+                return m_spriteImage.Visible;
+            }
+            set
+            {
+                m_spriteImage.Visible = value;
+            }
+        }
+
+        /// <summary>
+        /// this is the background color for the fight form for this enemy
+        /// </summary>
+        public Color Color { get; set; }
+
+        public bool IsAlive;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="initPos">this is the initial position of the enemy</param>
+        /// <param name="collider">this is the collider for the enemy</param>
+        public Enemy(Vector2 initPos, Collider collider, Point boundary1 = default(Point), Point boundary2 = default(Point)) : base(initPos, collider) {
+            EnemyPosition = initPos;
+            EnemyCollider = collider;
+            IsAlive = true;
+            if(boundary1 == default(Point) && boundary2 == default(Point))
+            {
+                m_isMoving = false;
+            }
+            else
+            {
+                m_isMoving = true;
+                if (boundary1.X == boundary2.X)
+                {
+                    m_moveDirection = MoveDirection.Vertical;
+                    m_enemyBoundaries = new int[2] { boundary1.Y, boundary2.Y };
+                    EnemyMoveSpeed = new Vector2(0, 2);
+                }
+                else
+                {
+                    m_moveDirection = MoveDirection.Horizontal;
+                    m_enemyBoundaries = new int[2] { boundary1.X, boundary2.X };
+                    EnemyMoveSpeed = new Vector2(2, 0);
+                }
+            }
+        }
 
         public void EnemyMove()
         {
@@ -63,88 +123,6 @@ namespace Fall2020_CSC403_Project.code {
                 EnemyPosition = nextEnemyPosition;
                 EnemyCollider.MovePosition((int)nextEnemyPosition.x, (int)nextEnemyPosition.y);
                 m_spriteImage.SetBounds(EnemyCollider.rect.X, EnemyCollider.rect.Y, EnemyCollider.rect.Width, EnemyCollider.rect.Height);
-            }
-        }
-
-        public void EnemyMoveBack()
-        {
-            EnemyPosition = EnemyLastPosition;
-        }
-
-        public void EnemyGoLeft()
-        {
-            //EnemyMoveSpeed = new Vector2(-GO_INC, 0);
-        }
-        public void EnemyGoRight()
-        {
-            //EnemyMoveSpeed = new Vector2(+GO_INC, 0);
-        }
-        public void EnemyGoUp()
-        {
-            //EnemyMoveSpeed = new Vector2(0, -GO_INC);
-        }
-        public void EnemyGoDown()
-        {
-            //EnemyMoveSpeed = new Vector2(0, +GO_INC);
-        }
-
-        private Image m_battleImage;
-        public Image battleImage { get { return m_battleImage; } private set { m_battleImage = value; } }
-        public void set_battle_image(Image battleImage)
-        {
-            m_battleImage = battleImage;
-        }
-        public System.Windows.Forms.PictureBox m_spriteImage { get; private set; }
-        public void set_sprite_image(System.Windows.Forms.PictureBox spriteImage)
-        {
-            m_spriteImage = spriteImage;
-        }
-        public bool Visible
-        {
-            get
-            {
-                return m_spriteImage.Visible;
-            }
-            set
-            {
-                m_spriteImage.Visible = value;
-            }
-        }
-        public int Dir { get; set; }
-        public int Walkspan { get; set; }
-        /// <summary>
-        /// this is the background color for the fight form for this enemy
-        /// </summary>
-        public Color Color { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="initPos">this is the initial position of the enemy</param>
-        /// <param name="collider">this is the collider for the enemy</param>
-        public Enemy(Vector2 initPos, Collider collider, Point boundary1 = default(Point), Point boundary2 = default(Point)) : base(initPos, collider) {
-            EnemyPosition = initPos;
-            EnemyCollider = collider;
-            IsAlive = true;
-            if(boundary1 == default(Point) && boundary2 == default(Point))
-            {
-                m_isMoving = false;
-            }
-            else
-            {
-                m_isMoving = true;
-                if (boundary1.X == boundary2.X)
-                {
-                    m_moveDirection = MoveDirection.Vertical;
-                    m_enemyBoundaries = new int[2] { boundary1.Y, boundary2.Y };
-                    EnemyMoveSpeed = new Vector2(0, 2);
-                }
-                else
-                {
-                    m_moveDirection = MoveDirection.Horizontal;
-                    m_enemyBoundaries = new int[2] { boundary1.X, boundary2.X };
-                    EnemyMoveSpeed = new Vector2(2, 0);
-                }
             }
         }
     }

@@ -84,6 +84,33 @@ namespace Fall2020_CSC403_Project {
             }
 
             UpdateHealthBars();
+    private void btnAttack_Click(object sender, EventArgs e) {
+
+        if (character_class == 0)
+        {
+            player.OnAttack(-4);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-20);
+            }
+        }
+        else if (character_class == 3)
+        {
+            player.OnAttack(-4);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-10);
+            }
+        }
+        else
+        {
+            player.OnAttack(-2);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-4);
+            }
+        }
+      UpdateHealthBars();
 
             if (player.Health <= 0)
             {
@@ -128,17 +155,127 @@ namespace Fall2020_CSC403_Project {
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OnDefend(-4);
+        }
+        public void OnDefend(int damage)
+        {
+            //int ClassID = 1;
+            double defense = 0.0;
+            if (character_class == 1)
+            {
+                defense = 0.75;
+            }
+
+            else
+            {
+                defense = 0.5;
+            }
+            DefenseCalc(damage, defense);
+        }
+
+        public void DefenseCalc(int damage, double defense)
+        {
+            double DamageReduction = (damage * defense);
+            double TotalDamage = (damage - DamageReduction);
+            //convert double to int
+            int DamageDone = (int)(Math.Floor(TotalDamage));
+            player.AlterHealth(DamageDone);
+            enemy.AlterHealth(DamageDone * 2);
+            UpdateHealthBars();
+
+            if (enemy.Health <= 0)
+            {
+                enemy.IsAlive = false;
+                instance = null;
+                Close();
+            }
+            if (player.Health <= 0)
+            {
+                this.Hide();
+                instance = null;
+                GameOver GO = new GameOver();
+                GO.Show();
+            }
+
+        }
+
+
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            player.AlterHealth(-1);
-            instance = null;
-            Close();
+            OnEscape();
         }
 
-        private void lblPlayerHealthFull_Click(object sender, EventArgs e)
+        public void OnEscape()
+        {
+            Random PlayerR = new Random();
+            Random EnemyR = new Random();
+
+            int PlayerEscapeChance = PlayerR.Next(1, 5);
+            int EnemyPursuitChance = PlayerR.Next(1, 5);
+
+            //int ClassID = 1;
+
+            if (character_class == 3)
+            {
+                PlayerEscapeChance += 1;
+                EscapeRoute(PlayerEscapeChance, EnemyPursuitChance);
+            }
+
+            else
+            {
+                EscapeRoute(PlayerEscapeChance, EnemyPursuitChance);
+            }
+        }
+
+        
+        public void EscapeRoute(int PlayerEscapeChance, int EnemyPursuitChance)
+        {
+            if (PlayerEscapeChance > EnemyPursuitChance)
+            {
+                instance = null;
+                this.Hide();
+            }
+
+            else if (EnemyPursuitChance > PlayerEscapeChance)
+            {
+                int PursuitDamage = (0 - ((EnemyPursuitChance - PlayerEscapeChance) * 2));
+                //send to the alter player health thing
+                player.AlterHealth(PursuitDamage);
+                UpdateHealthBars();
+                instance = null;
+                this.Hide();
+            }
+
+            else
+            {
+                double EscDamCalc = (0 - (PlayerEscapeChance / 2));
+                int EscapeDamage = (int)Math.Floor(EscDamCalc);
+                //send to the alter player health thing
+                player.AlterHealth(EscapeDamage);
+                UpdateHealthBars();
+                instance = null;
+                this.Hide();
+            }
+
+            if (player.Health <= 0)
+            {
+                //show game over screen
+                this.Hide();
+                instance = null;
+                GameOver GO = new GameOver();
+                GO.Show();
+
+
+            }
+        }
+
+    private void lblPlayerHealthFull_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

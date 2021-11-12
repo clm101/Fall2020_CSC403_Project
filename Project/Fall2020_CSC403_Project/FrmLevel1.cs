@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel1 : Form
     {
-        private Player player;
+       private Player player;
         public int character_class = 1;
         
 
@@ -59,6 +59,7 @@ namespace Fall2020_CSC403_Project {
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
+
 
 
             //BGM.Play();
@@ -132,8 +133,8 @@ namespace Fall2020_CSC403_Project {
             
             Game.player = player;
             timeBegin = DateTime.Now;
-            
 
+            
 
             //player.Health = 20;
             //player.MaxHealth = 20;

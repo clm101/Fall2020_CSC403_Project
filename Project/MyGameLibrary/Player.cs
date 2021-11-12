@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project.code {
     {
         public Player(Vector2 initPos, Collider collider, CharacterType characterType) : base(initPos, collider, characterType)
         {
-            set_walking_animations();
+            set_animations_and_battle_image();
         }
 
         private struct WalkingAnimations
@@ -64,7 +64,7 @@ namespace Fall2020_CSC403_Project.code {
             get { return m_walkingAnimations.downIdle; }
         }
 
-        public void set_walking_animations()
+        public void set_animations_and_battle_image()
         {
             string resourcesPath = Globals.resourcesPath;
             if (characterType == CharacterType.Basic)

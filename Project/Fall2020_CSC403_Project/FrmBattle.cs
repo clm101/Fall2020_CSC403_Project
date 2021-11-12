@@ -10,8 +10,9 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    public int character_class;
 
-    private FrmBattle() {
+        private FrmBattle() {
       InitializeComponent();
       player = Game.player;
     }
@@ -21,16 +22,32 @@ namespace Fall2020_CSC403_Project {
             //enemy.Health = 20;
             //enemy.MaxHealth = 20;
             UpdateHealthBars();
-            picEnemy.BackgroundImage = enemy.Img;
+            picEnemy.BackgroundImage = enemy.battleImage;
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
 
       string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
-      
-      picPlayer.BackgroundImage = new Bitmap(resourcesPath + "\\Tomato_Girl_Shimmer.png");
-      picEnemy.Refresh();
+      if (character_class == 0)
+            {
+                picPlayer.BackgroundImage = new Bitmap(resourcesPath + "\\Orange_Girl_Shimmer.png");
+      }
+            if (character_class == 1)
+            {
+                picPlayer.BackgroundImage = new Bitmap(resourcesPath + "\\Apple_Man_Shimmer.png");
+            }
+            if (character_class == 2)
+            {
+                picPlayer.BackgroundImage = new Bitmap(resourcesPath + "\\Monk_Man_Shimmer.png");
+            }
+            if (character_class == 3)
+            {
+                picPlayer.BackgroundImage = new Bitmap(resourcesPath + "\\Tomato_Girl_Shimmer.png");
+            }
+
+
+            picEnemy.Refresh();
 
       // Observer pattern
       //enemy.AttackEvent += PlayerDamage;
@@ -50,10 +67,11 @@ namespace Fall2020_CSC403_Project {
       //tmrFinalBattle.Enabled = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(Enemy enemy, int character_class) {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
+        instance.character_class = character_class;
         instance.Setup();
       }
       return instance;

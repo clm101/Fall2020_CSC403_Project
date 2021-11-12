@@ -40,8 +40,8 @@
             this.picWall12 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
-            this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
-            this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
+            this.batastropheSprite = new System.Windows.Forms.PictureBox();
+            this.stalkerSprite = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.Music_restarter = new System.Windows.Forms.Timer(this.components);
@@ -60,8 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.batastropheSprite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stalkerSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).BeginInit();
@@ -225,33 +225,32 @@
             this.picWall5.TabIndex = 6;
             this.picWall5.TabStop = false;
             // 
-            // picEnemyCheeto
+            // batastropheSprite
             // 
-            this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Image = ((System.Drawing.Image)(resources.GetObject("picEnemyCheeto.Image")));
-            this.picEnemyCheeto.Location = new System.Drawing.Point(1397, 425);
-            this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.picEnemyCheeto.Name = "picEnemyCheeto";
-            this.picEnemyCheeto.Size = new System.Drawing.Size(131, 132);
-            this.picEnemyCheeto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picEnemyCheeto.TabIndex = 5;
-            this.picEnemyCheeto.TabStop = false;
-            this.picEnemyCheeto.Click += new System.EventHandler(this.picEnemyCheeto_Click);
+            this.batastropheSprite.BackColor = System.Drawing.Color.Transparent;
+            this.batastropheSprite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.batastropheSprite.Image = ((System.Drawing.Image)(resources.GetObject("batastropheSprite.Image")));
+            this.batastropheSprite.Location = new System.Drawing.Point(1391, 266);
+            this.batastropheSprite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.batastropheSprite.Name = "batastropheSprite";
+            this.batastropheSprite.Size = new System.Drawing.Size(131, 132);
+            this.batastropheSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.batastropheSprite.TabIndex = 5;
+            this.batastropheSprite.TabStop = false;
+            this.batastropheSprite.Click += new System.EventHandler(this.picEnemyCheeto_Click);
             // 
-            // picEnemyPoisonPacket
+            // stalkerSprite
             // 
-            this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyPoisonPacket.Image = global::Fall2020_CSC403_Project.Properties.Resources.Girl_Power_Snail;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(643, 208);
-            this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
-            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(127, 129);
-            this.picEnemyPoisonPacket.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picEnemyPoisonPacket.TabIndex = 4;
-            this.picEnemyPoisonPacket.TabStop = false;
-            this.picEnemyPoisonPacket.Click += new System.EventHandler(this.picEnemyPoisonPacket_Click);
+            this.stalkerSprite.BackColor = System.Drawing.Color.Transparent;
+            this.stalkerSprite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.stalkerSprite.Image = global::Fall2020_CSC403_Project.Properties.Resources.Girl_Power_Snail;
+            this.stalkerSprite.Location = new System.Drawing.Point(643, 208);
+            this.stalkerSprite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stalkerSprite.Name = "stalkerSprite";
+            this.stalkerSprite.Size = new System.Drawing.Size(127, 129);
+            this.stalkerSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.stalkerSprite.TabIndex = 4;
+            this.stalkerSprite.TabStop = false;
             // 
             // picWall3
             // 
@@ -296,8 +295,8 @@
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
             this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Door;
             this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picDoor.Location = new System.Drawing.Point(1352, 92);
-            this.picDoor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.picDoor.Location = new System.Drawing.Point(1369, 80);
+            this.picDoor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picDoor.Name = "picDoor";
             this.picDoor.Size = new System.Drawing.Size(165, 199);
             this.picDoor.TabIndex = 18;
@@ -309,8 +308,8 @@
             this.picHealth.BackColor = System.Drawing.Color.Transparent;
             this.picHealth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picHealth.Image = global::Fall2020_CSC403_Project.Properties.Resources.Heart_Pickup;
-            this.picHealth.Location = new System.Drawing.Point(223, 327);
-            this.picHealth.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.picHealth.Location = new System.Drawing.Point(0, 0);
+            this.picHealth.Margin = new System.Windows.Forms.Padding(4);
             this.picHealth.Name = "picHealth";
             this.picHealth.Size = new System.Drawing.Size(140, 134);
             this.picHealth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -323,8 +322,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1682, 894);
-            this.Controls.Add(this.picHealth);
+            this.ClientSize = new System.Drawing.Size(1681, 892);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -338,15 +336,15 @@
             this.Controls.Add(this.picWall12);
             this.Controls.Add(this.picWall4);
             this.Controls.Add(this.picWall5);
-            this.Controls.Add(this.picEnemyCheeto);
-            this.Controls.Add(this.picEnemyPoisonPacket);
+            this.Controls.Add(this.batastropheSprite);
+            this.Controls.Add(this.stalkerSprite);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picDoor);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.MaximumSize = new System.Drawing.Size(1700, 941);
-            this.MinimumSize = new System.Drawing.Size(1700, 941);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1699, 939);
+            this.MinimumSize = new System.Drawing.Size(1699, 939);
             this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";
@@ -366,8 +364,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.batastropheSprite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stalkerSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).EndInit();
@@ -384,8 +382,8 @@
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
     private System.Windows.Forms.PictureBox picWall3;
-    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-    private System.Windows.Forms.PictureBox picEnemyCheeto;
+    private System.Windows.Forms.PictureBox stalkerSprite;
+    private System.Windows.Forms.PictureBox batastropheSprite;
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;
     private System.Windows.Forms.PictureBox picWall12;

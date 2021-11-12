@@ -15,11 +15,7 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxHealth { get; private set; }
 		private float Strength;
 
-		public int ClassId = 0;
-
-		//public event Action<int> AttackEvent;
-
-		
+		public int ClassId { get; set; }
 	
 		public CharacterClasses(Vector2 initPos, Collider collider) : base(initPos, collider)
 		{
@@ -49,7 +45,12 @@ namespace Fall2020_CSC403_Project.code
 			}
 		}
 
-		public void OnAttack(int amount)
+        public void  SetId(int classId)
+        {
+            ClassId = classId;
+        }
+
+        public void OnAttack(int amount)
 		{
 			Health += amount;
 		}

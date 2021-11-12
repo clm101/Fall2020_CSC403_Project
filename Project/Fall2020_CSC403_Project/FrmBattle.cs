@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+        
 
     private FrmBattle() {
       InitializeComponent();
@@ -28,7 +29,7 @@ namespace Fall2020_CSC403_Project {
 
       string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
-      
+            
       picPlayer.BackgroundImage = new Bitmap(resourcesPath + "\\Tomato_Girl_Shimmer.png");
       picEnemy.Refresh();
 

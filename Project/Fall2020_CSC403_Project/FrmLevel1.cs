@@ -11,7 +11,7 @@ namespace Fall2020_CSC403_Project {
     {
         private Player player;
         public int character_class = 1;
-
+        
 
         private Enemy enemyPoisonPacket;
         private Enemy enemyCheeto;
@@ -50,7 +50,8 @@ namespace Fall2020_CSC403_Project {
             
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            
+            player.ClassId = character_class;
+           
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -128,8 +129,7 @@ namespace Fall2020_CSC403_Project {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-
-            this.player.ClassId += this.character_class;
+            
             Game.player = player;
             timeBegin = DateTime.Now;
             

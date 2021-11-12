@@ -9,6 +9,14 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code
 {
+	public enum CharacterType
+	{
+		Basic,
+		Paladin,
+		Monk,
+		Thief
+	}
+
 	public class CharacterClasses : Character
 	{
 		public int Health { get;  set; }
@@ -16,19 +24,24 @@ namespace Fall2020_CSC403_Project.code
 		private float Strength;
 
 		public int ClassId { get; set; }
+		private CharacterType m_characterType;
+		public CharacterType characterType
+		{
+			get { return m_characterType; }
+			set { m_characterType = value; }
+		}
 
 		public static int SetId(int classId)
 		{
 
 			return classId;
 		}
-		public CharacterClasses(Vector2 initPos, Collider collider) : base(initPos, collider)
+		public CharacterClasses(Vector2 initPos, Collider collider, CharacterType characterType) : base(initPos, collider)
 		{
-
-				MaxHealth = 20;
-				//Strength = 2;
-				Health += MaxHealth;
-
+			m_characterType = characterType;
+			MaxHealth = 20;
+			//Strength = 2;
+			Health += MaxHealth;
 		}
 
        

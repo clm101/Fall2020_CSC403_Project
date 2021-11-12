@@ -22,48 +22,41 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
-        
-     
-        
         /*Basic Class*/
         private void button1_Click(object sender, EventArgs e)
         {
             level = new FrmLevel1();
-            level.character_class = 0;
+            //level.character_class = 0;
+            level.characterType = CharacterType.Basic;
             level.Show();
-            
-            this.Close();             
-          
+            this.Close();
         }
 
         /*Paladin Class*/
         private void button2_Click(object sender, EventArgs e)
         {
             level = new FrmLevel1();
-            level.character_class = 1;
-            
+            level.characterType = CharacterType.Paladin;
             level.Show();
             this.Close();
 
         }
-
 
         /*Monk Class*/
         private void button3_Click(object sender, EventArgs e)
         {
             level = new FrmLevel1();
-            level.character_class = 2;
+            level.characterType = CharacterType.Monk;
             level.Show();
             this.Close();
 
         }
 
-
         /*Thief Class*/
         private void button4_Click(object sender, EventArgs e)
         {
             level = new FrmLevel1();
-            level.character_class = 3;
+            level.characterType = CharacterType.Thief;
             level.Show();
             this.Close(); 
 

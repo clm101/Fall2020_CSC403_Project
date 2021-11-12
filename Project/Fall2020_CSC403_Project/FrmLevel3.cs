@@ -10,15 +10,13 @@ namespace Fall2020_CSC403_Project {
     public partial class FrmLevel3 : Form
     {
         private Player player;
-        public int character_class = 1;
-
+        public CharacterType characterType;
         private Character[] walls;
         private Enemy[] LevelEnemies;
         private Character door;
         private Character heart;
         private DateTime timeBegin;
         private FrmBattle frmBattle;
-        public Bitmap L, LI, R, RI, U, UI, D, DI;
         public SoundPlayer BGM = new SoundPlayer(Properties.Resources.Girl_Power_Dungeon_Theme_2);
         public bool moving = false;
         public Random rd = new Random();
@@ -37,64 +35,18 @@ namespace Fall2020_CSC403_Project {
         {
             const int PADDING = 7;
             const int NUM_WALLS = 13;
-            
-            string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
-            if (character_class == 0)
-            {
-                L = new Bitmap(resourcesPath + "\\OG_L.gif");
-                LI = new Bitmap(resourcesPath + "\\OG_LI.gif");
-                RI = new Bitmap(resourcesPath + "\\OG_RI.gif");
-                R = new Bitmap(resourcesPath + "\\OG_R.gif");
-                U = new Bitmap(resourcesPath + "\\OG_U.gif");
-                UI = new Bitmap(resourcesPath + "\\OG_UI.gif");
-                D = new Bitmap(resourcesPath + "\\OG_D.gif");
-                DI = new Bitmap(resourcesPath + "\\OG_DI.gif");
-            }
-            else if (character_class == 1)
-            {
-                L = new Bitmap(resourcesPath + "\\AM_L.gif");
-                LI = new Bitmap(resourcesPath + "\\AM_LI.gif");
-                R = new Bitmap(resourcesPath + "\\AM_R.gif");
-                RI = new Bitmap(resourcesPath + "\\AM_RI.gif");
-                U = new Bitmap(resourcesPath + "\\AM_U.gif");
-                UI = new Bitmap(resourcesPath + "\\AM_UI.gif");
-                D = new Bitmap(resourcesPath + "\\AM_D.gif");
-                DI = new Bitmap(resourcesPath + "\\AM_DI.gif");
-            }
-            else if (character_class == 2)
-            {
-                L = new Bitmap(resourcesPath + "\\MM_L.gif");
-                LI = new Bitmap(resourcesPath + "\\MM_LI.gif");
-                R = new Bitmap(resourcesPath + "\\MM_R.gif");
-                RI = new Bitmap(resourcesPath + "\\MM_RI.gif");
-                U = new Bitmap(resourcesPath + "\\MM_U.gif");
-                UI = new Bitmap(resourcesPath + "\\MM_UI.gif");
-                D = new Bitmap(resourcesPath + "\\MM_D.gif");
-                DI = new Bitmap(resourcesPath + "\\MM_DI.gif");
-            }
-            else // character_class == 3
-            {
-                L = new Bitmap(resourcesPath + "\\TG_L.gif");
-                LI = new Bitmap(resourcesPath + "\\TG_LI.gif");
-                R = new Bitmap(resourcesPath + "\\TG_R.gif");
-                RI = new Bitmap(resourcesPath + "\\TG_RI.gif");
-                U = new Bitmap(resourcesPath + "\\TG_U.gif");
-                UI = new Bitmap(resourcesPath + "\\TG_UI.gif");
-                D = new Bitmap(resourcesPath + "\\TG_D.gif");
-                DI = new Bitmap(resourcesPath + "\\TG_DI.gif");
-            }
-
-            // Instantiate player and door
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            picPlayer.Image = DI;
-            player.Health = Health;
-            player.MaxHealth = MaxHealth;
+            // Instantiate player sprite
+            player = Game.player;
+            player.set_position(picPlayer.Location.X, picPlayer.Location.Y);
+            picPlayer.Image = player.downIdle;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
             // Instantiate enemies
+            string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+
             Enemy stalker = new Enemy(CreatePosition(stalkerSprite), CreateCollider(stalkerSprite, PADDING), new Point(800, 200), new Point(800, 500), 4);
             stalker.set_battle_image(new Bitmap(resourcesPath + "\\Stalker.png"));
             stalker.set_sprite_image(Controls.Find("stalkerSprite", true)[0] as PictureBox);
@@ -113,9 +65,7 @@ namespace Fall2020_CSC403_Project {
             }
 
             BGM.Play();
-            Game.player = player;
             timeBegin = DateTime.Now;
-            player.ClassId = character_class;
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -175,9 +125,6 @@ namespace Fall2020_CSC403_Project {
                         combat = true;
                         this.Close();
                         FrmLevel4 f4 = new FrmLevel4();
-                        f4.character_class = character_class;
-                        f4.Health = player.Health;
-                        f4.MaxHealth = player.MaxHealth;
                         f4.Show();
                     }
                 }
@@ -257,9 +204,9 @@ namespace Fall2020_CSC403_Project {
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            picPlayer.Image = DI;
+            picPlayer.Image = player.downIdle;
             enemy.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy, character_class);
+            frmBattle = FrmBattle.GetInstance(enemy);
             moving = false;
             combat = true;
             frmBattle.ShowDialog();
@@ -278,7 +225,7 @@ namespace Fall2020_CSC403_Project {
                 case Keys.Left:
                     if (!moving)
                     {
-                        picPlayer.Image = L;
+                        picPlayer.Image = player.left;
                         combat = false;
                         moving = true;
                     }
@@ -288,7 +235,7 @@ namespace Fall2020_CSC403_Project {
                 case Keys.Right:
                     if (!moving)
                     {
-                        picPlayer.Image = R;
+                        picPlayer.Image = player.right;
                         combat = false;
                         moving = true;
                     }
@@ -298,7 +245,7 @@ namespace Fall2020_CSC403_Project {
                 case Keys.Up:
                     if (!moving)
                     {
-                        picPlayer.Image = U;
+                        picPlayer.Image = player.up;
                         combat = false;
                         moving = true;
                     }
@@ -308,7 +255,7 @@ namespace Fall2020_CSC403_Project {
                 case Keys.Down:
                     if (!moving)
                     {
-                        picPlayer.Image = D;
+                        picPlayer.Image = player.down;
                         combat = false;
                         moving = true;
                     }
@@ -326,25 +273,25 @@ namespace Fall2020_CSC403_Project {
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    picPlayer.Image = LI;
+                    picPlayer.Image = player.leftIdle;
                     moving = false;
                     player.ResetMoveSpeed();
                     break;
 
                 case Keys.Right:
-                    picPlayer.Image = RI;
+                    picPlayer.Image = player.rightIdle;
                     moving = false;
                     player.ResetMoveSpeed();
                     break;
 
                 case Keys.Up:
-                    picPlayer.Image = UI;
+                    picPlayer.Image = player.upIdle;
                     player.ResetMoveSpeed();
                     moving = false;
                     break;
 
                 case Keys.Down:
-                    picPlayer.Image = DI;
+                    picPlayer.Image = player.downIdle;
                     moving = false;
                     player.ResetMoveSpeed();
                     break;

@@ -29,8 +29,6 @@ namespace Fall2020_CSC403_Project {
         public int Health;
         public int MaxHealth;
 
-        //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
-
         public FrmLevel1()
         {
             InitializeComponent();
@@ -44,7 +42,6 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 11;
 
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             if (character_class == 0)
             {
                 player.Health = 20;
@@ -58,50 +55,49 @@ namespace Fall2020_CSC403_Project {
                 D = new Bitmap(resourcesPath + "\\OG_D.gif");
                 DI = new Bitmap(resourcesPath + "\\OG_DI.gif");
             }
-            if (character_class == 1)
+            else if (character_class == 1)
             {
                 player.Health = 25;
                 player.MaxHealth = 25;
-                L = new Bitmap(resourcesPath + "\\AM_L.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_L);
-                LI = new Bitmap(resourcesPath + "\\AM_LI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_LI);
-                R = new Bitmap(resourcesPath + "\\AM_R.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_R);
-                RI = new Bitmap(resourcesPath + "\\AM_RI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_RI);
-                U = new Bitmap(resourcesPath + "\\AM_U.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_U);
-                UI = new Bitmap(resourcesPath + "\\AM_UI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_UI);
-                D = new Bitmap(resourcesPath + "\\AM_D.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_D);
-                DI = new Bitmap(resourcesPath + "\\AM_DI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_DI);
+                L = new Bitmap(resourcesPath + "\\AM_L.gif");
+                LI = new Bitmap(resourcesPath + "\\AM_LI.gif");
+                R = new Bitmap(resourcesPath + "\\AM_R.gif");
+                RI = new Bitmap(resourcesPath + "\\AM_RI.gif");
+                U = new Bitmap(resourcesPath + "\\AM_U.gif");
+                UI = new Bitmap(resourcesPath + "\\AM_UI.gif");
+                D = new Bitmap(resourcesPath + "\\AM_D.gif");
+                DI = new Bitmap(resourcesPath + "\\AM_DI.gif");
             }
-            if (character_class == 2)
+            else if (character_class == 2)
             {
                 player.Health = 15;
                 player.MaxHealth = 15;
-                L = new Bitmap(resourcesPath + "\\MM_L.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_L);
-                LI = new Bitmap(resourcesPath + "\\MM_LI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_LI);
-                R = new Bitmap(resourcesPath + "\\MM_R.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_R);
-                RI = new Bitmap(resourcesPath + "\\MM_RI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_RI);
-                U = new Bitmap(resourcesPath + "\\MM_U.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                UI = new Bitmap(resourcesPath + "\\MM_UI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                D = new Bitmap(resourcesPath + "\\MM_D.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_D);
-                DI = new Bitmap(resourcesPath + "\\MM_DI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_DI);
+                L = new Bitmap(resourcesPath + "\\MM_L.gif");
+                LI = new Bitmap(resourcesPath + "\\MM_LI.gif");
+                R = new Bitmap(resourcesPath + "\\MM_R.gif");
+                RI = new Bitmap(resourcesPath + "\\MM_RI.gif");
+                U = new Bitmap(resourcesPath + "\\MM_U.gif");
+                UI = new Bitmap(resourcesPath + "\\MM_UI.gif");
+                D = new Bitmap(resourcesPath + "\\MM_D.gif");
+                DI = new Bitmap(resourcesPath + "\\MM_DI.gif");
             }
-            if (character_class == 3)
+            else // character_class == 3
             {
                 player.Health = 10;
                 player.MaxHealth = 10;
-                L = new Bitmap(resourcesPath + "\\TG_L.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_L);
-                LI = new Bitmap(resourcesPath + "\\TG_LI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_LI);
-                R = new Bitmap(resourcesPath + "\\TG_R.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_R);
-                RI = new Bitmap(resourcesPath + "\\TG_RI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_RI);
-                U = new Bitmap(resourcesPath + "\\TG_U.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_U);
-                UI = new Bitmap(resourcesPath + "\\TG_UI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_UI);
-                D = new Bitmap(resourcesPath + "\\TG_D.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_D);
-                DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
+                L = new Bitmap(resourcesPath + "\\TG_L.gif");
+                LI = new Bitmap(resourcesPath + "\\TG_LI.gif");
+                R = new Bitmap(resourcesPath + "\\TG_R.gif");
+                RI = new Bitmap(resourcesPath + "\\TG_RI.gif");
+                U = new Bitmap(resourcesPath + "\\TG_U.gif");
+                UI = new Bitmap(resourcesPath + "\\TG_UI.gif");
+                D = new Bitmap(resourcesPath + "\\TG_D.gif");
+                DI = new Bitmap(resourcesPath + "\\TG_DI.gif");
             }
 
             // Instantiate player and door
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             picPlayer.Image = DI;
-            //player.Health = 20;
-           // player.MaxHealth = 20;
 
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
@@ -126,11 +122,6 @@ namespace Fall2020_CSC403_Project {
             
             Game.player = player;
             timeBegin = DateTime.Now;
-
-            
-
-            //player.Health = 20;
-            //player.MaxHealth = 20;
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -140,7 +131,7 @@ namespace Fall2020_CSC403_Project {
 
         private void Music_restarter_Tick(object sender, EventArgs e)
         {
-            //BGM.Play();
+        
         }
 
         private Collider CreateCollider(PictureBox pic, int padding)
@@ -346,6 +337,7 @@ namespace Fall2020_CSC403_Project {
                     break;
             }
         }
+
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

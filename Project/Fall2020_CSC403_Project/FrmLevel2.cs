@@ -27,8 +27,6 @@ namespace Fall2020_CSC403_Project {
         public int Health;
         public int MaxHealth;
 
-        //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
-
         public FrmLevel2()
         {
             InitializeComponent();
@@ -41,10 +39,6 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 13;
 
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
-
-            //player.ClassId = character_class;
-            //BGM.Play();
-
             if (character_class == 0)
             {
                 L = new Bitmap(resourcesPath + "\\OG_L.gif");
@@ -56,7 +50,7 @@ namespace Fall2020_CSC403_Project {
                 D = new Bitmap(resourcesPath + "\\OG_D.gif");
                 DI = new Bitmap(resourcesPath + "\\OG_DI.gif");
             }
-            if (character_class == 1)
+            else if (character_class == 1)
             {
                 L = new Bitmap(resourcesPath + "\\AM_L.gif");
                 LI = new Bitmap(resourcesPath + "\\AM_LI.gif");
@@ -67,7 +61,7 @@ namespace Fall2020_CSC403_Project {
                 D = new Bitmap(resourcesPath + "\\AM_D.gif");
                 DI = new Bitmap(resourcesPath + "\\AM_DI.gif");
             }
-            if (character_class == 2)
+            else if (character_class == 2)
             {
                 L = new Bitmap(resourcesPath + "\\MM_L.gif");
                 LI = new Bitmap(resourcesPath + "\\MM_LI.gif");
@@ -78,7 +72,7 @@ namespace Fall2020_CSC403_Project {
                 D = new Bitmap(resourcesPath + "\\MM_D.gif");
                 DI = new Bitmap(resourcesPath + "\\MM_DI.gif");
             }
-            if (character_class == 3)
+            else // character_class == 3
             {
                 L = new Bitmap(resourcesPath + "\\TG_L.gif");
                 LI = new Bitmap(resourcesPath + "\\TG_LI.gif");
@@ -120,9 +114,6 @@ namespace Fall2020_CSC403_Project {
             BGM.Play();
             Game.player = player;
             timeBegin = DateTime.Now;
-            
-            //player.Health = Health;
-            //player.MaxHealth = MaxHealth;
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -132,7 +123,7 @@ namespace Fall2020_CSC403_Project {
 
         private void Music_restarter_Tick(object sender, EventArgs e)
         {
-            //BGM.Play();
+            
         }
 
         private Collider CreateCollider(PictureBox pic, int padding)
@@ -263,6 +254,7 @@ namespace Fall2020_CSC403_Project {
         {
             return you.Collider.Intersects(other.Collider);
         }
+
         private bool HitAHeart(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
@@ -336,6 +328,7 @@ namespace Fall2020_CSC403_Project {
                     break;
             }
         }
+
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

@@ -404,5 +404,32 @@
   <ItemGroup>
     <None Include="Resources\Pause.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spriteBat_negX.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spriteBat_posX.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Bat_Moving_Up.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Girl_Power_Snail_Right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spriteSnail_negX.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spriteSnail_negY.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spriteSnail_posX.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spriteBat_negY.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FotR.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

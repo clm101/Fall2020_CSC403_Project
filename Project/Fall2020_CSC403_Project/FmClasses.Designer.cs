@@ -29,6 +29,7 @@ namespace Fall2020_CSC403_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmClasses));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -48,7 +49,7 @@ namespace Fall2020_CSC403_Project
             this.button1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Button_6;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(74, 580);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 64);
             this.button1.TabIndex = 0;
@@ -60,7 +61,7 @@ namespace Fall2020_CSC403_Project
             this.button2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Button_3;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Location = new System.Drawing.Point(486, 580);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(189, 64);
             this.button2.TabIndex = 1;
@@ -72,7 +73,7 @@ namespace Fall2020_CSC403_Project
             this.button3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Button_4;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Location = new System.Drawing.Point(827, 580);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(189, 64);
             this.button3.TabIndex = 2;
@@ -84,7 +85,7 @@ namespace Fall2020_CSC403_Project
             this.button4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Button_5;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.Location = new System.Drawing.Point(1184, 580);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(189, 64);
             this.button4.TabIndex = 3;
@@ -97,7 +98,7 @@ namespace Fall2020_CSC403_Project
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Orange_Girl_Shimmer;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(13, -49);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(389, 672);
             this.pictureBox1.TabIndex = 5;
@@ -109,7 +110,7 @@ namespace Fall2020_CSC403_Project
             this.pictureBox2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Apple_Man_Shimmer;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(389, -14);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(387, 658);
             this.pictureBox2.TabIndex = 6;
@@ -121,7 +122,7 @@ namespace Fall2020_CSC403_Project
             this.pictureBox3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Monk_Man_Shimmer;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(765, 3);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(329, 595);
             this.pictureBox3.TabIndex = 7;
@@ -133,7 +134,7 @@ namespace Fall2020_CSC403_Project
             this.pictureBox4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Tomato_Girl_Shimmer;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.Location = new System.Drawing.Point(1102, 3);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(329, 595);
             this.pictureBox4.TabIndex = 8;
@@ -154,7 +155,8 @@ namespace Fall2020_CSC403_Project
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FmClasses";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
